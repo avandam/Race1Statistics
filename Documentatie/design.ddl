@@ -1,5 +1,35 @@
+ALTER TABLE Score_ScoreSysteem DROP FOREIGN KEY FKScore_Scor947933;
+ALTER TABLE Score_ScoreSysteem DROP FOREIGN KEY FKScore_Scor746057;
+ALTER TABLE Seizoen DROP FOREIGN KEY FKSeizoen329677;
+ALTER TABLE Discipline_Seizoen DROP FOREIGN KEY FKDiscipline72080;
+ALTER TABLE Discipline_Seizoen DROP FOREIGN KEY FKDiscipline755599;
+ALTER TABLE Seizoen_Team DROP FOREIGN KEY FKSeizoen_Te795790;
+ALTER TABLE Seizoen_Team DROP FOREIGN KEY FKSeizoen_Te557776;
+ALTER TABLE Seizoen_GrandPrix DROP FOREIGN KEY FKSeizoen_Gr478429;
+ALTER TABLE Seizoen_GrandPrix DROP FOREIGN KEY FKSeizoen_Gr339951;
+ALTER TABLE GrandPrix DROP FOREIGN KEY FKGrandPrix760326;
+ALTER TABLE Coureur_Team_seizoen DROP FOREIGN KEY FKCoureur_Te75658;
+ALTER TABLE Coureur_Team_seizoen DROP FOREIGN KEY FKCoureur_Te339059;
+ALTER TABLE Uitslag DROP FOREIGN KEY FKUitslag741510;
+ALTER TABLE Uitslag DROP FOREIGN KEY FKUitslag854601;
+ALTER TABLE Coureur_Team_seizoen DROP FOREIGN KEY FKCoureur_Te313672;
+ALTER TABLE Team DROP FOREIGN KEY FKTeam654480;
+DROP TABLE IF EXISTS Score;
+DROP TABLE IF EXISTS ScoreSysteem;
+DROP TABLE IF EXISTS Score_ScoreSysteem;
+DROP TABLE IF EXISTS Seizoen;
+DROP TABLE IF EXISTS Discipline;
+DROP TABLE IF EXISTS Discipline_Seizoen;
+DROP TABLE IF EXISTS Team;
+DROP TABLE IF EXISTS Seizoen_Team;
+DROP TABLE IF EXISTS GrandPrix;
+DROP TABLE IF EXISTS Seizoen_GrandPrix;
+DROP TABLE IF EXISTS Circuit;
+DROP TABLE IF EXISTS Uitslag;
+DROP TABLE IF EXISTS Coureur;
+DROP TABLE IF EXISTS Coureur_Team_seizoen;
 CREATE TABLE Score (Id int(10) NOT NULL AUTO_INCREMENT, Place int(10) NOT NULL, Points int(10) NOT NULL, PRIMARY KEY (Id));
-CREATE TABLE ScoreSysteem (Id int(10) NOT NULL AUTO_INCREMENT, Naam varchar(255) NOT NULL UNIQUE, PRIMARY KEY (Id));
+CREATE TABLE ScoreSysteem (Id int(10) NOT NULL AUTO_INCREMENT, Naam varchar(255) NOT NULL UNIQUE, PuntenVoorSnelsteRonde int(10) DEFAULT 0 NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE Score_ScoreSysteem (ScoreId int(10) NOT NULL, ScoreSysteemId int(10) NOT NULL, PRIMARY KEY (ScoreId, ScoreSysteemId));
 CREATE TABLE Seizoen (Id int(10) NOT NULL AUTO_INCREMENT, Jaar int(10) NOT NULL, ScoreSysteemId int(10) NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE Discipline (Id int(10) NOT NULL AUTO_INCREMENT, Naam varchar(100) NOT NULL UNIQUE, PRIMARY KEY (Id));
@@ -9,7 +39,10 @@ CREATE TABLE Seizoen_Team (SeizoenId int(10) NOT NULL, TeamId int(10) NOT NULL, 
 CREATE TABLE GrandPrix (Id int(10) NOT NULL AUTO_INCREMENT, Naam varchar(100) NOT NULL, CircuitId int(10) NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE Seizoen_GrandPrix (GrandPrixId int(10) NOT NULL, SeizoenId int(10) NOT NULL, Datum date NOT NULL, PRIMARY KEY (GrandPrixId, SeizoenId));
 CREATE TABLE Circuit (Id int(10) NOT NULL AUTO_INCREMENT, Naam varchar(100) NOT NULL, Plaats varchar(100) NOT NULL, Land varchar(100) NOT NULL, PRIMARY KEY (Id));
-CREATE TABLE Uitslag (GrandPrixId int(10) NOT NULL, CoureurId int(10) NOT NULL, Plaats int(10) NOT NULL, PRIMARY KEY (GrandPrixId, CoureurId));
+CREATE TABLE Uitslag (GrandPrixId int(10) NOT NULL, CoureurId int(10) NOT NULL, Plaats int(10) NOT NULL, SnelsteRonde bit(1) DEFAULT 0 NOT NULL, Status int(10) DEFAULT 0 NOT NULL comment '0 = Gefinished
+1 = NietGefinished
+2 = NietGestart
+3 = NietGekwalificeerd', PRIMARY KEY (GrandPrixId, CoureurId));
 CREATE TABLE Coureur (Id int(10) NOT NULL AUTO_INCREMENT, Naam varchar(100) NOT NULL, Geboortedatum varchar(100), Land varchar(100) NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE Coureur_Team_seizoen (TeamId int(10) NOT NULL, CoureurId int(10) NOT NULL, SeizoenId int(10) NOT NULL, PRIMARY KEY (TeamId, CoureurId, SeizoenId));
 ALTER TABLE Score_ScoreSysteem ADD INDEX FKScore_Scor947933 (ScoreId), ADD CONSTRAINT FKScore_Scor947933 FOREIGN KEY (ScoreId) REFERENCES Score (Id);
