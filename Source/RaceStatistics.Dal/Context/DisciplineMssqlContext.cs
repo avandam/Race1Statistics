@@ -3,9 +3,6 @@ using RaceStatistics.Dal.Interfaces.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RaceStatistics.Logic;
 
 namespace RaceStatistics.Dal.Context
@@ -36,7 +33,7 @@ namespace RaceStatistics.Dal.Context
             }
             else
             {
-                throw new DisciplineExistsException(String.Format("The discipline with name {0} already exists.", name));
+                throw new DisciplineExistsException($"The discipline with name {name} already exists.");
             }
         }
 
