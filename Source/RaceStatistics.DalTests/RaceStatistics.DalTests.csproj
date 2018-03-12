@@ -56,6 +56,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Context\DisciplineMssqlContextTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestContextTests.cs" />
   </ItemGroup>
@@ -63,9 +64,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RaceStatistics.Dal.Interfaces\RaceStatistics.Dal.Interfaces.csproj">
+      <Project>{0f9af269-ce86-4f8b-9ab8-d892465bd81e}</Project>
+      <Name>RaceStatistics.Dal.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RaceStatistics.Dal\RaceStatistics.Dal.csproj">
       <Project>{BD8290CF-9890-478A-BCB5-AA8C1D05FF83}</Project>
       <Name>RaceStatistics.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RaceStatistics.Domain\RaceStatistics.Domain.csproj">
+      <Project>{3a8cd9e4-9f34-4573-b75b-73a45aabba21}</Project>
+      <Name>RaceStatistics.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RaceStatistics.Logic\RaceStatistics.Logic.csproj">
+      <Project>{CFDD1FD1-7FFA-456E-B55E-A20B24D642DF}</Project>
+      <Name>RaceStatistics.Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

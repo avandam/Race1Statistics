@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestContext = RaceStatistics.Dal.TestContext;
 
-namespace RaceStatistics.Dal.Tests
+namespace RaceStatistics.DalTests
 {
     [TestClass]
     public class TestContextTests
