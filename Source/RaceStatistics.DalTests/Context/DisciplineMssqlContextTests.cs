@@ -34,6 +34,27 @@ namespace RaceStatistics.DalTests.Context
         }
 
         [TestMethod]
+        public void RemoveDisciplineTest()
+        {
+            DisciplineMssqlContext sqlContext = new DisciplineMssqlContext();
+
+            try
+            {
+                sqlContext.AddDiscipline("Formule 1");
+                sqlContext.AddDiscipline("Nascar");
+                Assert.AreEqual(2, sqlContext.GetDisciplines().Count);
+                sqlContext.RemoveDiscipline("Nascar");
+                Assert.AreEqual(1, sqlContext.GetDisciplines().Count);
+            }
+            finally
+            {
+                sqlContext.RemoveDiscipline("Formule 1");
+                Assert.AreEqual(0, sqlContext.GetDisciplines().Count);
+            }
+        }
+
+
+        [TestMethod]
         [ExpectedException(typeof(DisciplineExistsException))]
         public void AddDisciplineTwiceTest()
         {
