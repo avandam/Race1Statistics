@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.Domain", "Ra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.Factory", "RaceStatistics.Factory\RaceStatistics.Factory.csproj", "{79CED755-9A5A-4C1D-AF6D-C57351E75477}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.LogicTests", "RaceStatistics.LogicTests\RaceStatistics.LogicTests.csproj", "{0FE75F9F-CC29-4D59-A230-FEAB24004B1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{79CED755-9A5A-4C1D-AF6D-C57351E75477}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79CED755-9A5A-4C1D-AF6D-C57351E75477}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79CED755-9A5A-4C1D-AF6D-C57351E75477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FE75F9F-CC29-4D59-A230-FEAB24004B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FE75F9F-CC29-4D59-A230-FEAB24004B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FE75F9F-CC29-4D59-A230-FEAB24004B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FE75F9F-CC29-4D59-A230-FEAB24004B1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

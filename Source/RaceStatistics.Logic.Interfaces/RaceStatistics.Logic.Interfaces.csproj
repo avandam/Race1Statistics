@@ -40,7 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ICircuit.cs" />
+    <Compile Include="IDiscipline.cs" />
+    <Compile Include="IDriver.cs" />
+    <Compile Include="IRaceStats.cs" />
+    <Compile Include="IScoreSystem.cs" />
+    <Compile Include="ITeam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

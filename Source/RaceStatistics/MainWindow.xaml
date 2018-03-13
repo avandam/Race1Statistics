@@ -7,6 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="225"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ListView Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" HorizontalAlignment="Left" VerticalAlignment="Top" Name="LvDisciplines" Width="290" Height="290">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="145" Height="25" Name="TxtAddDiscipline"/>
+        <Button Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Content="Add Discipline" Width="100" Name="BtnAddDiscipline" Click="BtnAddDiscipline_Click"></Button>
+        <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Content="Remove Discipline" Width="100" Name="BtnRemoveDiscipline" Click="BtnRemoveDiscipline_Click"></Button>
     </Grid>
 </Window>

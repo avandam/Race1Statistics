@@ -1,6 +1,6 @@
 ﻿namespace RaceStatistics.Logic.Interfaces
 {
-    public class Class1
+    public interface ITeam
     {
     }
 }

@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RaceStatistics.Dal.Context;
-using RaceStatistics.Dal.Interfaces.Exceptions;
+using RaceStatistics.Domain;
+using RaceStatistics.Domain.Exceptions;
 using RaceStatistics.Logic;
 
 namespace RaceStatistics.DalTests.Context
@@ -17,7 +18,7 @@ namespace RaceStatistics.DalTests.Context
             try
             {
                 sqlContext.AddDiscipline("Formule 1");
-                List<Discipline> disciplines = sqlContext.GetDisciplines();
+                List<DisciplineInfo> disciplines = sqlContext.GetDisciplines();
                 Assert.AreEqual(1, disciplines.Count);
                 Assert.AreEqual("Formule 1", disciplines[0].Name);
             }
@@ -58,7 +59,7 @@ namespace RaceStatistics.DalTests.Context
             try
             {
                 sqlContext.AddDiscipline("Formule 1");
-                List<Discipline> disciplines = sqlContext.GetDisciplines();
+                List<DisciplineInfo> disciplines = sqlContext.GetDisciplines();
                 Assert.AreEqual(1, disciplines.Count);
                 Assert.AreEqual("Formule 1", disciplines[0].Name);
                 sqlContext.AddDiscipline("Formule 1");

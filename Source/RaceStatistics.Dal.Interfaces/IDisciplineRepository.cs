@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using RaceStatistics.Domain;
 
-namespace RaceStatistics.Dal.ContextInterfaces
+namespace RaceStatistics.Dal.Interfaces
 {
-    public interface IDisciplineContext
+    public interface IDisciplineRepository
     {
         void AddDiscipline(string name);
         List<DisciplineInfo> GetDisciplines();

@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="CircuitInfo.cs" />
     <Compile Include="DriverInfo.cs" />
+    <Compile Include="Exceptions\DatabaseException.cs" />
+    <Compile Include="Exceptions\DisciplineExistsException.cs" />
     <Compile Include="RaceInfo.cs" />
     <Compile Include="ResultInfo.cs" />
     <Compile Include="ResultStatus.cs" />

@@ -53,8 +53,8 @@
     <Compile Include="ContextInterfaces\IDisciplineContext.cs" />
     <Compile Include="Context\DisciplineMssqlContext.cs" />
     <Compile Include="Database.cs" />
-    <Compile Include="TestContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DisciplineRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -68,10 +68,7 @@
       <Project>{3a8cd9e4-9f34-4573-b75b-73a45aabba21}</Project>
       <Name>RaceStatistics.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RaceStatistics.Logic\RaceStatistics.Logic.csproj">
-      <Project>{CFDD1FD1-7FFA-456E-B55E-A20B24D642DF}</Project>
-      <Name>RaceStatistics.Logic</Name>
-    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

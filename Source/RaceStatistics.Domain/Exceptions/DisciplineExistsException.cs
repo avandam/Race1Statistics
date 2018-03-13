@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RaceStatistics.Dal.Interfaces.Exceptions
+namespace RaceStatistics.Domain.Exceptions
 {
     public class DisciplineExistsException : Exception
     {

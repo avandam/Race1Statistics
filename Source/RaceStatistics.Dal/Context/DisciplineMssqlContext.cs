@@ -1,9 +1,9 @@
 ﻿using RaceStatistics.Dal.ContextInterfaces;
-using RaceStatistics.Dal.Interfaces.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using RaceStatistics.Logic;
+using RaceStatistics.Domain;
+using RaceStatistics.Domain.Exceptions;
 
 namespace RaceStatistics.Dal.Context
 {
@@ -63,9 +63,9 @@ namespace RaceStatistics.Dal.Context
             }
         }
 
-        public List<Discipline> GetDisciplines()
+        public List<DisciplineInfo> GetDisciplines()
         {
-            List<Discipline> disciplines = new List<Discipline>();
+            List<DisciplineInfo> disciplines = new List<DisciplineInfo>();
             try
             {
                 using (SqlConnection connection = Database.Connection)
@@ -78,7 +78,7 @@ namespace RaceStatistics.Dal.Context
                         {
                             while (reader.Read())
                             {
-                                disciplines.Add(new Discipline(Convert.ToString(reader["name"])));
+                                disciplines.Add(new DisciplineInfo(Convert.ToString(reader["name"])));
                             }
                         }
                     }
