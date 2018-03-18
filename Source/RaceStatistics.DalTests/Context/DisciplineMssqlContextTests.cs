@@ -3,7 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RaceStatistics.Dal.Context;
 using RaceStatistics.Domain;
 using RaceStatistics.Domain.Exceptions;
-using RaceStatistics.Logic;
 
 namespace RaceStatistics.DalTests.Context
 {

@@ -40,7 +40,7 @@ namespace RaceStatistics.Logic
             disciplineRepository.RemoveDiscipline(discipline.Name);
         }
 
-        public void AddScoreSystem(string name, bool fastestLapPoints)
+        public void AddScoreSystem(string name, int fastestLapPoints)
         {
             throw new NotImplementedException();
         }

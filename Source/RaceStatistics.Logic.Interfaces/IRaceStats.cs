@@ -10,7 +10,7 @@ namespace RaceStatistics.Logic
         void AddDiscipline(string name);
         List<IDiscipline> GetDisciplines();
         void RemoveDiscipline(IDiscipline discipline);
-        void AddScoreSystem(string name, bool fastestLapPoints);
+        void AddScoreSystem(string name, int fastestLapPoints);
         List<IScoreSystem> GetScoreSystems();
         void RemoveScoreSystem(IScoreSystem scoreSystem);
         void AddCircuit(string name, string city, string country);
