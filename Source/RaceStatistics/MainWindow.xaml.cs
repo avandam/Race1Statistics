@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using RaceStatistics.Domain.Exceptions;
 using RaceStatistics.Factory;
 using RaceStatistics.Logic;
 using RaceStatistics.Logic.Interfaces;
@@ -23,8 +24,20 @@ namespace RaceStatistics
         {
             if (!String.IsNullOrEmpty(TxtAddDiscipline.Text))
             {
-                raceStats.AddDiscipline(TxtAddDiscipline.Text);
+                try
+                {
+                    raceStats.AddDiscipline(TxtAddDiscipline.Text);
+                }
+                catch (DisciplineExistsException exception)
+                {
+                    MessageBox.Show($"Could not add discipline. Error: {exception.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
                 UpdateUi();
+            }
+            else
+            {
+                MessageBox.Show("Please fill in a discipline before you add it.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
