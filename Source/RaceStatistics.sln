@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics", "RaceStati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.Dal", "RaceStatistics.Dal\RaceStatistics.Dal.csproj", "{BD8290CF-9890-478A-BCB5-AA8C1D05FF83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.DalTests", "RaceStatistics.DalTests\RaceStatistics.DalTests.csproj", "{8693273B-DB6E-42E9-AEDB-B8F756088300}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.Dal.Tests", "RaceStatistics.DalTests\RaceStatistics.Dal.Tests.csproj", "{8693273B-DB6E-42E9-AEDB-B8F756088300}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.Dal.Interfaces", "RaceStatistics.Dal.Interfaces\RaceStatistics.Dal.Interfaces.csproj", "{0F9AF269-CE86-4F8B-9AB8-D892465BD81E}"
 EndProject
@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.Domain", "Ra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.Factory", "RaceStatistics.Factory\RaceStatistics.Factory.csproj", "{79CED755-9A5A-4C1D-AF6D-C57351E75477}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.LogicTests", "RaceStatistics.LogicTests\RaceStatistics.LogicTests.csproj", "{0FE75F9F-CC29-4D59-A230-FEAB24004B1C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.Logic.Tests", "RaceStatistics.LogicTests\RaceStatistics.Logic.Tests.csproj", "{0FE75F9F-CC29-4D59-A230-FEAB24004B1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

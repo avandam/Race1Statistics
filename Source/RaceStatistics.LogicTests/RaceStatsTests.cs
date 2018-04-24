@@ -1,12 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RaceStatistics.Logic;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RaceStatistics.Dal.Interfaces;
-using RaceStatistics.Domain;
+using RaceStatistics.Dal.Repositories;
+using RaceStatistics.Logic.Interfaces;
+using RaceStatistics.LogicTests;
 
 namespace RaceStatistics.Logic.Tests
 {
@@ -16,8 +12,19 @@ namespace RaceStatistics.Logic.Tests
         [TestMethod()]
         public void AddDisciplineTest()
         {
-            
-        }
-    }
 
+        }
+
+        [TestMethod()]
+        public void GetDisciplinesTest()
+        {
+            RaceStats raceStats = new RaceStats(new DisciplineRepository(new DisciplineTestContext()));
+            List<IDiscipline> disciplines = raceStats.GetDisciplines();
+            Assert.AreEqual(2, disciplines.Count);
+            Assert.AreEqual("Formula 1", disciplines[0].Name);
+            Assert.AreEqual("Nascar", disciplines[1].Name);
+        }
+
+
+    }
 }

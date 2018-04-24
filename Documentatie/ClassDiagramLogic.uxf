@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <help_text>// Uncomment the following line to change the fontsize and font:
+fontsize=12
+// fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use +/- or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>328</x>
+      <y>40</y>
+      <w>360</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>RaceStats
+--
+--
++AddDiscipline(name: String)
++RemoveDiscipline(discipline: Discipline)
++GetDisciplines(): Discipline[]
+
++AddScoreSystem(name: String, scores: Score[], pointsForFastestLap: Integer)
++RemoveScoreSystem(scoreSystem: ScoreSystem)
++GetScoreSystems(): ScoreSystem[]
+
++AddCircuit(name: String, city: String, country: String)
++RemoveCircuit(circuit: Circuit)
++GetCircuits(): Circuit[]
+
++AddRaceTeam(name: String, country: String)
++RemoveRaceTeam(team: Team)
++GetRaceTeams(): Team[]
+
++AddDriver(name: String, birthDate: Date, country: String)
++RemoveDriver(driver: Driver)
++GetDrivers(): Driver[]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>328</x>
+      <y>376</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Discipline
+--
+-Name: String
+--
++AddSeason(year: Integer)
++RemoveSeason(season: Season)
++GetSeasons(): Season[]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>592</x>
+      <y>376</y>
+      <w>224</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Season
+--
+-Year: Integer
+--
++AddRace(name: String, date: Date, circuit: Circuit)
++AddTeam(team: Team)
++AddScoreSystem(system: ScoreSystem)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>936</x>
+      <y>376</y>
+      <w>224</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>ScoreSystem
+--
+-Name: String
+-FastestLapPoints: Integer
+--
++AddScore(place: Integer, points: Integer)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>328</x>
+      <y>504</y>
+      <w>232</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Race
+--
+-Name: String
+-Date: Date
+--
++AddResult(place: Integer, hasFastesLap: Boolean, 
+    status: ResultStatus, driver: TeamDriver)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>856</x>
+      <y>792</y>
+      <w>224</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Driver
+--
+-Name: String
+-BirthDate: Date
+-Country: String
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>928</x>
+      <y>512</y>
+      <w>224</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Score
+--
+-Place: Integer
+-Points: Integer
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>336</x>
+      <y>656</y>
+      <w>224</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Circuit
+--
+-Name: String
+-City: String
+-Country: String
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>592</x>
+      <y>656</y>
+      <w>224</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Result
+--
+-Place: Integer
+-HasFastestLap: Boolean
+-Status: ResultStatus
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>592</x>
+      <y>504</y>
+      <w>224</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Team
+--
+-Name: String
+-Country: Country
+--
+AddDriver(driver: Driver, season: Season)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>856</x>
+      <y>656</y>
+      <w>224</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>TeamDriver
+--
+--
+AddDriver(driver: Driver)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>376</x>
+      <y>272</y>
+      <w>64</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+r1=disciplines</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>392</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+r1=seasons</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>808</x>
+      <y>392</y>
+      <w>144</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=scoreSystem</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>440</y>
+      <w>48</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+r1=score</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>552</x>
+      <y>440</y>
+      <w>96</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+r1=races
+m2=  1
+r2=season</panel_attributes>
+    <additional_attributes>10.0;80.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>440</y>
+      <w>48</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+r1=teams</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>568</y>
+      <w>48</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=circuit</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>568</y>
+      <w>128</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+r1=results</panel_attributes>
+    <additional_attributes>140.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>776</x>
+      <y>568</y>
+      <w>112</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+r1=drivers</panel_attributes>
+    <additional_attributes>100.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>808</x>
+      <y>440</y>
+      <w>128</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=   season</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>944</x>
+      <y>720</y>
+      <w>48</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=driver</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

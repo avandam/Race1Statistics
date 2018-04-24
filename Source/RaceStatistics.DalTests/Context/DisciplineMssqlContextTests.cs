@@ -4,7 +4,7 @@ using RaceStatistics.Dal.Context;
 using RaceStatistics.Domain;
 using RaceStatistics.Domain.Exceptions;
 
-namespace RaceStatistics.DalTests.Context
+namespace RaceStatistics.Dal.Tests.Context
 {
     [TestClass]
     public class DisciplineMssqlContextTests

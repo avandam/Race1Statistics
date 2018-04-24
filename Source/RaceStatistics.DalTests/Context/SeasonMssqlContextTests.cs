@@ -1,14 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RaceStatistics.Dal.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RaceStatistics.Domain;
 using RaceStatistics.Domain.Exceptions;
 
-namespace RaceStatistics.Dal.Context.Tests
+namespace RaceStatistics.Dal.Tests.Context
 {
     [TestClass()]
     public class SeasonMssqlContextTests

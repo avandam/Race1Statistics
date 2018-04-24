@@ -32,6 +32,7 @@ namespace RaceStatistics
                 {
                     MessageBox.Show($"Could not add discipline. Error: {exception.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+                // catch dal exceptions
 
                 UpdateUi();
             }
