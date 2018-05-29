@@ -33,7 +33,7 @@ namespace RaceStatistics.Dal.Context
             }
             else
             {
-                throw new DisciplineExistsException($"The discipline with name {name} already exists.");
+                throw new DisciplineExistsException($"The discipline with name '{name}' already exists.");
             }
         }
 
