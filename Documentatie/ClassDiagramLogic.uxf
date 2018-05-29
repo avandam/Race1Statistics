@@ -28,12 +28,13 @@ fontsize=12
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>328</x>
-      <y>40</y>
+      <x>160</x>
+      <y>0</y>
       <w>360</w>
       <h>240</h>
     </coordinates>
     <panel_attributes>RaceStats
+bg=orange
 --
 --
 +AddDiscipline(name: String)
@@ -60,12 +61,13 @@ fontsize=12
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>328</x>
-      <y>376</y>
+      <x>160</x>
+      <y>336</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>Discipline
+bg=orange
 --
 -Name: String
 --
@@ -77,12 +79,13 @@ fontsize=12
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>592</x>
-      <y>376</y>
+      <x>424</x>
+      <y>336</y>
       <w>224</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>Season
+bg=orange
 --
 -Year: Integer
 --
@@ -94,12 +97,13 @@ fontsize=12
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>936</x>
-      <y>376</y>
+      <x>768</x>
+      <y>336</y>
       <w>224</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>ScoreSystem
+bg=orange
 --
 -Name: String
 -FastestLapPoints: Integer
@@ -110,12 +114,13 @@ fontsize=12
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>328</x>
-      <y>504</y>
+      <x>160</x>
+      <y>464</y>
       <w>232</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>Race
+bg=orange
 --
 -Name: String
 -Date: Date
@@ -127,12 +132,13 @@ fontsize=12
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>856</x>
-      <y>792</y>
+      <x>760</x>
+      <y>736</y>
       <w>224</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>Driver
+bg=orange
 --
 -Name: String
 -BirthDate: Date
@@ -143,12 +149,13 @@ fontsize=12
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>928</x>
-      <y>512</y>
+      <x>760</x>
+      <y>472</y>
       <w>224</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>Score
+bg=orange
 --
 -Place: Integer
 -Points: Integer
@@ -158,12 +165,13 @@ fontsize=12
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>336</x>
-      <y>656</y>
+      <x>168</x>
+      <y>616</y>
       <w>224</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>Circuit
+bg=orange
 --
 -Name: String
 -City: String
@@ -174,12 +182,13 @@ fontsize=12
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>592</x>
-      <y>656</y>
+      <x>424</x>
+      <y>616</y>
       <w>224</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>Result
+bg=orange
 --
 -Place: Integer
 -HasFastestLap: Boolean
@@ -190,12 +199,13 @@ fontsize=12
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>592</x>
-      <y>504</y>
+      <x>424</x>
+      <y>464</y>
       <w>224</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>Team
+bg=orange
 --
 -Name: String
 -Country: Country
@@ -206,12 +216,13 @@ AddDriver(driver: Driver, season: Season)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>856</x>
-      <y>656</y>
+      <x>760</x>
+      <y>616</y>
       <w>224</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>TeamDriver
+bg=orange
 --
 --
 AddDriver(driver: Driver)</panel_attributes>
@@ -220,8 +231,8 @@ AddDriver(driver: Driver)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>376</x>
-      <y>272</y>
+      <x>208</x>
+      <y>232</y>
       <w>64</w>
       <h>120</h>
     </coordinates>
@@ -233,8 +244,8 @@ r1=disciplines</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>488</x>
-      <y>392</y>
+      <x>320</x>
+      <y>352</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -246,8 +257,8 @@ r1=seasons</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>808</x>
-      <y>392</y>
+      <x>640</x>
+      <y>352</y>
       <w>144</w>
       <h>40</h>
     </coordinates>
@@ -259,8 +270,8 @@ r1=scoreSystem</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1032</x>
-      <y>440</y>
+      <x>864</x>
+      <y>400</y>
       <w>48</w>
       <h>88</h>
     </coordinates>
@@ -272,8 +283,8 @@ r1=score</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>552</x>
-      <y>440</y>
+      <x>384</x>
+      <y>400</y>
       <w>96</w>
       <h>80</h>
     </coordinates>
@@ -287,8 +298,8 @@ r2=season</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>688</x>
-      <y>440</y>
+      <x>520</x>
+      <y>400</y>
       <w>48</w>
       <h>80</h>
     </coordinates>
@@ -300,8 +311,8 @@ r1=teams</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>440</x>
-      <y>568</y>
+      <x>272</x>
+      <y>528</y>
       <w>48</w>
       <h>104</h>
     </coordinates>
@@ -313,8 +324,8 @@ r1=circuit</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>568</y>
+      <x>352</x>
+      <y>528</y>
       <w>128</w>
       <h>104</h>
     </coordinates>
@@ -326,40 +337,53 @@ r1=results</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>776</x>
-      <y>568</y>
-      <w>112</w>
+      <x>608</x>
+      <y>528</y>
+      <w>184</w>
       <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*
 r1=drivers</panel_attributes>
-    <additional_attributes>100.0;110.0;10.0;10.0</additional_attributes>
+    <additional_attributes>210.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>808</x>
-      <y>440</y>
-      <w>128</w>
+      <x>624</x>
+      <y>400</y>
+      <w>216</w>
       <h>232</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
 r1=   season</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;270.0</additional_attributes>
+    <additional_attributes>10.0;10.0;250.0;270.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>944</x>
-      <y>720</y>
+      <x>848</x>
+      <y>680</y>
       <w>48</w>
-      <h>88</h>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
 r1=driver</panel_attributes>
-    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>640</y>
+      <w>136</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=driver</panel_attributes>
+    <additional_attributes>150.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
