@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Windows;
-using RaceStatistics.Domain.Exceptions;
-using RaceStatistics.Factory;
-using RaceStatistics.Logic;
-using RaceStatistics.Logic.Interfaces;
+using RaceStatistics.Logic.Factory;
+using RaceStatistics.Logic.Interfaces.Exceptions;
+using RaceStatistics.Logic.Interfaces.Interfaces;
 
 namespace RaceStatistics
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    // ReSharper disable once RedundantExtendsListEntry
     public partial class MainWindow : Window
     {
         private readonly IRaceStats raceStats;
         public MainWindow()
         {
             InitializeComponent();
-            raceStats = RaceStatsFactory.GetRaceStats();
+            raceStats = LogicFactory.GetRaceStats();
             UpdateUi();
         }
 
@@ -28,17 +28,20 @@ namespace RaceStatistics
                 {
                     raceStats.AddDiscipline(TxtAddDiscipline.Text);
                 }
-                catch (DisciplineExistsException exception)
+                catch (DuplicateInputException exception)
                 {
-                    MessageBox.Show($"Could not add discipline. Error: {exception.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Input error on adding a discipline.\nError: {exception.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                // TODO AlDa: catch dal exceptions
+                catch (ConnectionException exception)
+                {
+                    MessageBox.Show($"Error adding discipline.\nError: {exception.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
 
                 UpdateUi();
             }
             else
             {
-                MessageBox.Show("Please fill in a discipline before you add it.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please fill in a discipline name before you add it.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -47,14 +50,36 @@ namespace RaceStatistics
             if (LvDisciplines.SelectedIndex >= 0)
             {
                 IDiscipline selectedDiscipline = LvDisciplines.SelectedItem as IDiscipline;
-                raceStats.RemoveDiscipline(selectedDiscipline);
+                try
+                {
+                    raceStats.RemoveDiscipline(selectedDiscipline);
+
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show($"Could not remove the disciplines\nError: {exception.Message}", "Error",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
                 UpdateUi();
             }
         }
 
         public void UpdateUi()
         {
-            LvDisciplines.ItemsSource = raceStats.GetDisciplines();
+
+            try
+            {
+                LvDisciplines.ItemsSource = raceStats.GetDisciplines();
+
+            }
+            catch (ConnectionException exception)
+            {
+                MessageBox.Show($"Could not get the disciplines\nError: {exception.Message}", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                LvDisciplines.ItemsSource = null;
+            }
+
             LvDisciplines.Items.Refresh();
         }
     }

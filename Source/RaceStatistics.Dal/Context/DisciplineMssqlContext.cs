@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using RaceStatistics.Domain;
-using RaceStatistics.Domain.Exceptions;
+using RaceStatistics.Dal.Interfaces.Exceptions;
+using RaceStatistics.Dal.Interfaces.Models;
 
 namespace RaceStatistics.Dal.Context
 {

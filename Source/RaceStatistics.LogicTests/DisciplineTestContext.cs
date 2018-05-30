@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using RaceStatistics.Dal.ContextInterfaces;
-using RaceStatistics.Domain;
+using RaceStatistics.Dal.Interfaces.Models;
 
-namespace RaceStatistics.LogicTests
+namespace RaceStatistics.Logic.Tests
 {
     class DisciplineTestContext : IDisciplineContext
     {
@@ -17,9 +13,12 @@ namespace RaceStatistics.LogicTests
 
         public List<DisciplineInfo> GetDisciplines()
         {
-            List<DisciplineInfo> disciplines = new List<DisciplineInfo>();
-            disciplines.Add(new DisciplineInfo("Formula 1"));
-            disciplines.Add(new DisciplineInfo("Nascar"));
+            List<DisciplineInfo> disciplines =
+                new List<DisciplineInfo>
+                {
+                    new DisciplineInfo("Formula 1"),
+                    new DisciplineInfo("Nascar")
+                };
             return disciplines;
         }
 

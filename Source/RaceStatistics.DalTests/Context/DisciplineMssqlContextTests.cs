@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RaceStatistics.Dal.Context;
-using RaceStatistics.Domain;
-using RaceStatistics.Domain.Exceptions;
+using RaceStatistics.Dal.Interfaces.Exceptions;
+using RaceStatistics.Dal.Interfaces.Models;
 
 namespace RaceStatistics.Dal.Tests.Context
 {
@@ -16,15 +16,17 @@ namespace RaceStatistics.Dal.Tests.Context
 
             try
             {
-                sqlContext.AddDiscipline("Formule 1");
                 List<DisciplineInfo> disciplines = sqlContext.GetDisciplines();
+                Assert.AreEqual(0, disciplines.Count, "Precondition for this test is empty database");
+                sqlContext.AddDiscipline("Formule 1");
+                disciplines = sqlContext.GetDisciplines();
                 Assert.AreEqual(1, disciplines.Count);
                 Assert.AreEqual("Formule 1", disciplines[0].Name);
             }
             finally
             {
                 sqlContext.RemoveDiscipline("Formule 1");
-                Assert.AreEqual(0, sqlContext.GetDisciplines().Count);
+                Assert.AreEqual(0, sqlContext.GetDisciplines().Count, "Cleanup of database failed");
             }
         }
 

@@ -72,10 +72,6 @@
       <Project>{BD8290CF-9890-478A-BCB5-AA8C1D05FF83}</Project>
       <Name>RaceStatistics.Dal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RaceStatistics.Domain\RaceStatistics.Domain.csproj">
-      <Project>{3a8cd9e4-9f34-4573-b75b-73a45aabba21}</Project>
-      <Name>RaceStatistics.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RaceStatistics.Logic.Interfaces\RaceStatistics.Logic.Interfaces.csproj">
       <Project>{BDE0EA2B-9D1D-4DA1-A154-F8D2B5891730}</Project>
       <Name>RaceStatistics.Logic.Interfaces</Name>

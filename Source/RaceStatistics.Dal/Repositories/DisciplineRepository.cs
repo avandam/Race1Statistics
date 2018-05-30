@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using RaceStatistics.Dal.ContextInterfaces;
-using RaceStatistics.Dal.Interfaces;
-using RaceStatistics.Domain;
+using RaceStatistics.Dal.Interfaces.Models;
+using RaceStatistics.Dal.Interfaces.RepositoryInterfaces;
 
 namespace RaceStatistics.Dal.Repositories
 {

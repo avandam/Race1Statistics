@@ -40,17 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDisciplineRepository.cs" />
+    <Compile Include="Exceptions\DatabaseException.cs" />
+    <Compile Include="Exceptions\DisciplineDoesNotExistException.cs" />
+    <Compile Include="Exceptions\DisciplineExistsException.cs" />
+    <Compile Include="Exceptions\InvalidSeasonException.cs" />
+    <Compile Include="Exceptions\SeasonExistsException.cs" />
+    <Compile Include="Models\CircuitInfo.cs" />
+    <Compile Include="Models\DisciplineInfo.cs" />
+    <Compile Include="Models\DriverInfo.cs" />
+    <Compile Include="Models\RaceInfo.cs" />
+    <Compile Include="Models\ResultInfo.cs" />
+    <Compile Include="Models\ScoreInfo.cs" />
+    <Compile Include="Models\ScoreSystemInfo.cs" />
+    <Compile Include="Models\SeasonInfo.cs" />
+    <Compile Include="Models\TeamInfo.cs" />
+    <Compile Include="RepositoryInterfaces\IDisciplineRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RaceStatistics.Domain\RaceStatistics.Domain.csproj">
-      <Project>{3a8cd9e4-9f34-4573-b75b-73a45aabba21}</Project>
-      <Name>RaceStatistics.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Exceptions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

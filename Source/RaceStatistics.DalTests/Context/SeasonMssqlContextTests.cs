@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RaceStatistics.Dal.Context;
-using RaceStatistics.Domain;
-using RaceStatistics.Domain.Exceptions;
+using RaceStatistics.Dal.Interfaces.Exceptions;
+using RaceStatistics.Dal.Interfaces.Models;
 
 namespace RaceStatistics.Dal.Tests.Context
 {
@@ -99,7 +99,6 @@ namespace RaceStatistics.Dal.Tests.Context
         [ExpectedException(typeof(DisciplineDoesNotExistException))]
         public void AddSeasonToNonExistingDiscipline()
         {
-            DisciplineMssqlContext disciplineMssqlContext = new DisciplineMssqlContext();
             SeasonMssqlContext seasonMssqlContext = new SeasonMssqlContext();
 
             DisciplineInfo discipline = new DisciplineInfo("Formule 1");

@@ -108,7 +108,8 @@ bg=orange
 -Name: String
 -FastestLapPoints: Integer
 --
-+AddScore(place: Integer, points: Integer)</panel_attributes>
++AddScore(place: Integer, points: Integer)
++RemoveScore(score: Score)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

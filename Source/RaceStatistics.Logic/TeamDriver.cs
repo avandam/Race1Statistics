@@ -7,7 +7,7 @@ namespace RaceStatistics.Logic
         private Season season;
         private Driver driver;
 
-        public void AddDriver(Driver driver)
+        public void AddDriver(Driver driverToAdd)
         {
             throw new NotImplementedException();
         }

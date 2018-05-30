@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using RaceStatistics.Domain;
-using RaceStatistics.Logic.Interfaces;
+using RaceStatistics.Dal.Interfaces.Models;
+using RaceStatistics.Logic.Interfaces.Interfaces;
 
 namespace RaceStatistics.Logic
 {
-    public class Discipline : DisciplineInfo, IDiscipline
+    public class Discipline : IDiscipline
     {
+        public string Name { get; }
+
         private List<Season> seasons = new List<Season>();
-        public Discipline(string name) : base(name)
+        public Discipline(string name) 
         {
+            Name = name;
         }
 
-        public Discipline(DisciplineInfo discipline) : base (discipline.Name)
+        public Discipline(DisciplineInfo discipline) : this (discipline.Name)
         {
             
         }

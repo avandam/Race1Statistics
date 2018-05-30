@@ -40,19 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICircuit.cs" />
-    <Compile Include="IDiscipline.cs" />
-    <Compile Include="IDriver.cs" />
-    <Compile Include="IRaceStats.cs" />
-    <Compile Include="IScoreSystem.cs" />
-    <Compile Include="ITeam.cs" />
+    <Compile Include="Exceptions\ConnectionException.cs" />
+    <Compile Include="Exceptions\DuplicateInputException.cs" />
+    <Compile Include="Interfaces\ICircuit.cs" />
+    <Compile Include="Interfaces\IDiscipline.cs" />
+    <Compile Include="Interfaces\IDriver.cs" />
+    <Compile Include="Interfaces\IRaceStats.cs" />
+    <Compile Include="Interfaces\IScoreSystem.cs" />
+    <Compile Include="Interfaces\ITeam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\ResultStatus.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RaceStatistics.Domain\RaceStatistics.Domain.csproj">
-      <Project>{3a8cd9e4-9f34-4573-b75b-73a45aabba21}</Project>
-      <Name>RaceStatistics.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

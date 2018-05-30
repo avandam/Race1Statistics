@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using RaceStatistics.Domain;
+using RaceStatistics.Dal.Interfaces.Models;
 
 namespace RaceStatistics.Dal.ContextInterfaces
 {

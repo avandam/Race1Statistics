@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{79CED755-9A5A-4C1D-AF6D-C57351E75477}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RaceStatistics.Logic.Factory</RootNamespace>
+    <AssemblyName>RaceStatistics.Logic.Factory</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LogicFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RaceStatistics.Dal.Factory\RaceStatistics.Dal.Factory.csproj">
+      <Project>{547da196-8981-4591-94d0-3eeeaf2b509d}</Project>
+      <Name>RaceStatistics.Dal.Factory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RaceStatistics.Dal.Interfaces\RaceStatistics.Dal.Interfaces.csproj">
+      <Project>{0f9af269-ce86-4f8b-9ab8-d892465bd81e}</Project>
+      <Name>RaceStatistics.Dal.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RaceStatistics.Logic.Interfaces\RaceStatistics.Logic.Interfaces.csproj">
+      <Project>{bde0ea2b-9d1d-4da1-a154-f8d2b5891730}</Project>
+      <Name>RaceStatistics.Logic.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RaceStatistics.Logic\RaceStatistics.Logic.csproj">
+      <Project>{cfdd1fd1-7ffa-456e-b55e-a20b24d642df}</Project>
+      <Name>RaceStatistics.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

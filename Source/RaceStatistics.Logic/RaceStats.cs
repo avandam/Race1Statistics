@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using RaceStatistics.Dal.Interfaces;
-using RaceStatistics.Logic.Interfaces;
+using System.Collections.ObjectModel;
+using RaceStatistics.Dal.Interfaces.Exceptions;
+using RaceStatistics.Dal.Interfaces.RepositoryInterfaces;
+using RaceStatistics.Logic.Interfaces.Exceptions;
+using RaceStatistics.Logic.Interfaces.Interfaces;
 
 namespace RaceStatistics.Logic
 {
@@ -22,22 +25,50 @@ namespace RaceStatistics.Logic
 
         public void AddDiscipline(string name)
         {
-            disciplineRepository.AddDiscipline(name);
+            try
+            {
+                disciplineRepository.AddDiscipline(name);
+
+            }
+            catch (DisciplineExistsException ex)
+            {
+                throw new DuplicateInputException(ex.Message);
+            }
+            catch (DatabaseException ex)
+            {
+                throw new ConnectionException(ex.Message);
+            }
         }
 
-        public List<IDiscipline> GetDisciplines()
+        public IReadOnlyCollection<IDiscipline> GetDisciplines()
         {
-            disciplines.Clear();
-            foreach (var discipline in disciplineRepository.GetDisciplines())
+            try
             {
-                disciplines.Add(new Discipline(discipline));
+                disciplines.Clear();
+                foreach (var discipline in disciplineRepository.GetDisciplines())
+                {
+                    disciplines.Add(new Discipline(discipline));
+                }
+                return new ReadOnlyCollection<IDiscipline>(disciplines);
+
             }
-            return disciplines;
+            catch (DatabaseException ex)
+            {
+                throw new ConnectionException(ex.Message);
+            }
         }
 
         public void RemoveDiscipline(IDiscipline discipline)
         {
-            disciplineRepository.RemoveDiscipline(discipline.Name);
+            try
+            {
+                disciplineRepository.RemoveDiscipline(discipline.Name);
+
+            }
+            catch (DatabaseException ex)
+            {
+                throw new ConnectionException(ex.Message);
+            }
         }
 
         public void AddScoreSystem(string name, int fastestLapPoints)
