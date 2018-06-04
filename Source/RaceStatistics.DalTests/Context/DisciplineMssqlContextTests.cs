@@ -7,7 +7,7 @@ using RaceStatistics.Dal.Interfaces.Models;
 namespace RaceStatistics.Dal.Tests.Context
 {
     [TestClass]
-    public class DisciplineMssqlContextTests
+    public class DisciplineMssqlContextTests : BaseTests
     {
         [TestMethod]
         public void AddDisciplineTest()

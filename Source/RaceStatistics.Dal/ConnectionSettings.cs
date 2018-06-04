@@ -1,28 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
+using System.Security.Policy;
 
 namespace RaceStatistics.Dal
 {
     public static class ConnectionSettings
     {
-        public static string DatabaseServer = "";
-        public static string DatabaseName = "";
-        public static string DatabaseUser = "";
-        public static string DatabasePassword = "";
+        private const string databaseServer = "localhost";
+        private static string databaseName = "RaceStatistics";
+        private const bool integratedSecurity = true;
 
         public static string GetConnectionString()
         {
-            SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
-            stringBuilder.UserID = DatabaseUser;
-            stringBuilder.Password = DatabasePassword;
-            stringBuilder.DataSource = DatabaseServer;
-            stringBuilder.InitialCatalog = DatabaseName;
+            SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder
+            {
+                DataSource = databaseServer,
+                InitialCatalog = databaseName,
+                IntegratedSecurity = integratedSecurity
+            };
 
             return stringBuilder.ConnectionString;
+        }
+
+        internal static void ChangeDatabaseName(string newDatabaseName)
+        {
+            databaseName = newDatabaseName;
         }
     }
 }

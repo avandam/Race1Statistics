@@ -7,7 +7,7 @@ using RaceStatistics.Dal.Interfaces.Models;
 namespace RaceStatistics.Dal.Tests.Context
 {
     [TestClass()]
-    public class SeasonMssqlContextTests
+    public class SeasonMssqlContextTests : BaseTests
     {
         [TestMethod()]
         public void AddSeasonTest()
