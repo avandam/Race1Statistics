@@ -80,6 +80,10 @@
       <Project>{CFDD1FD1-7FFA-456E-B55E-A20B24D642DF}</Project>
       <Name>RaceStatistics.Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RaceStatistics.Test.Utilities\RaceStatistics.Test.Utilities.csproj">
+      <Project>{255D4ADD-D201-486A-9A2B-39BDD6B3F706}</Project>
+      <Name>RaceStatistics.Test.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

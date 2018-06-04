@@ -28,7 +28,7 @@ namespace RaceStatistics
                 {
                     raceStats.AddDiscipline(TxtAddDiscipline.Text);
                 }
-                catch (DuplicateInputException exception)
+                catch (InvalidInputException exception)
                 {
                     MessageBox.Show($"Input error on adding a discipline.\nError: {exception.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }

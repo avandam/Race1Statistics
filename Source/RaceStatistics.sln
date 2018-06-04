@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.Logic.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.Dal.Factory", "RaceStatistics.Dal.Factory\RaceStatistics.Dal.Factory.csproj", "{547DA196-8981-4591-94D0-3EEEAF2B509D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceStatistics.Test.Utilities", "RaceStatistics.Test.Utilities\RaceStatistics.Test.Utilities.csproj", "{255D4ADD-D201-486A-9A2B-39BDD6B3F706}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{547DA196-8981-4591-94D0-3EEEAF2B509D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{547DA196-8981-4591-94D0-3EEEAF2B509D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{547DA196-8981-4591-94D0-3EEEAF2B509D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{255D4ADD-D201-486A-9A2B-39BDD6B3F706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{255D4ADD-D201-486A-9A2B-39BDD6B3F706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{255D4ADD-D201-486A-9A2B-39BDD6B3F706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{255D4ADD-D201-486A-9A2B-39BDD6B3F706}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

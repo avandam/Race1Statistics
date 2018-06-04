@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using RaceStatistics.Dal.ContextInterfaces;
+using RaceStatistics.Dal.Interfaces.Exceptions;
 using RaceStatistics.Dal.Interfaces.Models;
 
 namespace RaceStatistics.Logic.Tests
@@ -27,4 +28,57 @@ namespace RaceStatistics.Logic.Tests
             // Do Nothing
         }
     }
+
+    public class DisciplineTestAddDuplicateDisciplineContext : IDisciplineContext
+    {
+        public void AddDiscipline(string name)
+        {
+            throw new DisciplineExistsException("The discipline exists");
+        }
+
+        public List<DisciplineInfo> GetDisciplines()
+        {
+            return null;
+        }
+
+        public void RemoveDiscipline(string name)
+        {
+        }
+    }
+
+    public class DisciplineTestConnectionErrorContext : IDisciplineContext
+    {
+        public void AddDiscipline(string name)
+        {
+            throw new DatabaseException("Connection issue");
+        }
+
+        public List<DisciplineInfo> GetDisciplines()
+        {
+            throw new DatabaseException("Connection issue");
+        }
+
+        public void RemoveDiscipline(string name)
+        {
+            throw new DatabaseException("Connection issue");
+        }
+    }
+
+    public class DisciplineTestAddEmptyDisciplineContext : IDisciplineContext
+    {
+        public void AddDiscipline(string name)
+        {
+            throw new InvalidDataFormatException("The discipline exists", "Name");
+        }
+
+        public List<DisciplineInfo> GetDisciplines()
+        {
+            return null;
+        }
+
+        public void RemoveDiscipline(string name)
+        {
+        }
+    }
+
 }

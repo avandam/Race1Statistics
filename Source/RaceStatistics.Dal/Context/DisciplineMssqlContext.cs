@@ -28,6 +28,10 @@ namespace RaceStatistics.Dal.Context
                 }
                 catch (Exception ex)
                 {
+                    if (ex.Message.Contains("CK_RS_Discipline_NameNotEmpty"))
+                    {
+                        throw new InvalidDataFormatException(ex.Message, "Name");
+                    }
                     throw new DatabaseException(ex.Message);
                 }
             }

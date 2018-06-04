@@ -30,7 +30,7 @@ CREATE TABLE RS_Score (Id int IDENTITY NOT NULL, Place int NOT NULL, Points int 
 CREATE TABLE RS_ScoreSystem (Id int IDENTITY NOT NULL, Name varchar(255) NOT NULL UNIQUE, FastestLapPoints int DEFAULT 0 NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE RS_Score_ScoreSystem (ScoreId int NOT NULL, ScoreSystemId int NOT NULL, PRIMARY KEY (ScoreId, ScoreSystemId));
 CREATE TABLE RS_Season (Id int IDENTITY NOT NULL, Year int NOT NULL, ScoreSystemId int NOT NULL, PRIMARY KEY (Id));
-CREATE TABLE RS_Discipline (Id int IDENTITY NOT NULL, Name varchar(100) NOT NULL UNIQUE, PRIMARY KEY (Id));
+CREATE TABLE RS_Discipline (Id int IDENTITY NOT NULL, Name varchar(100) NOT NULL UNIQUE, PRIMARY KEY (Id), CONSTRAINT CK_RS_Discipline_NameNotEmpty CHECK (Name <> ""));
 CREATE TABLE RS_Discipline_Season (DisciplineId int NOT NULL, SeasonId int NOT NULL, PRIMARY KEY (DisciplineId, SeasonId));
 CREATE TABLE RS_Team (Id int IDENTITY NOT NULL, Name varchar(100) NOT NULL, Country varchar(100) NOT NULL, BaseTeam int NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE RS_Season_Team (SeasonId int NOT NULL, TeamId int NOT NULL, PRIMARY KEY (SeasonId, TeamId));

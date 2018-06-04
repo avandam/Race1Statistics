@@ -10,7 +10,7 @@ namespace RaceStatistics.Logic.Interfaces.Interfaces
         /// Add a discipline to the system
         /// </summary>
         /// <param name="name">The name of the discipline</param>
-        /// <exception cref="DuplicateInputException">Thrown when the discipline already exists</exception>
+        /// <exception cref="InvalidInputException">Thrown when the discipline already exists</exception>
         /// <exception cref="ConnectionException">Thrown when adding the discipline failed</exception>
         void AddDiscipline(string name);
         /// <summary>

@@ -28,11 +28,14 @@ namespace RaceStatistics.Logic
             try
             {
                 disciplineRepository.AddDiscipline(name);
-
             }
             catch (DisciplineExistsException ex)
             {
-                throw new DuplicateInputException(ex.Message);
+                throw new InvalidInputException(ex.Message);
+            }
+            catch (InvalidDataFormatException ex)
+            {
+                throw new InvalidInputException($"The field(s): {ex.InvalidFields} should not be empty");
             }
             catch (DatabaseException ex)
             {

@@ -43,6 +43,7 @@
     <Compile Include="Exceptions\DatabaseException.cs" />
     <Compile Include="Exceptions\DisciplineDoesNotExistException.cs" />
     <Compile Include="Exceptions\DisciplineExistsException.cs" />
+    <Compile Include="Exceptions\InvalidDataFormatException.cs" />
     <Compile Include="Exceptions\InvalidSeasonException.cs" />
     <Compile Include="Exceptions\SeasonExistsException.cs" />
     <Compile Include="Models\CircuitInfo.cs" />
