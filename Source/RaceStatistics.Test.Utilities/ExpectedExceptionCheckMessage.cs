@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace RaceStatistics.Test.Utilities
@@ -10,17 +6,20 @@ namespace RaceStatistics.Test.Utilities
     public sealed class ExpectedExceptionCheckMessage : ExpectedExceptionBaseAttribute
     {
         private readonly Type expectedExceptionType;
-        private readonly string expectedExceptionMessage;
+        private readonly string expectedExceptionMessage = string.Empty;
+        private readonly string errorMessageProblemWithType;
+        private readonly string errorMessageProblemWithMessage;
 
-        public ExpectedExceptionCheckMessage(Type expectedExceptionType)
+        public ExpectedExceptionCheckMessage(Type expectedExceptionType, string errorMessageProblemWithType, string errorMessageProblemWithMessage)
         {
             this.expectedExceptionType = expectedExceptionType;
-            expectedExceptionMessage = string.Empty;
+            this.errorMessageProblemWithType = errorMessageProblemWithType;
+            this.errorMessageProblemWithMessage = errorMessageProblemWithMessage;
         }
 
-        public ExpectedExceptionCheckMessage(Type expectedExceptionType, string expectedExceptionMessage)
+        public ExpectedExceptionCheckMessage(Type expectedExceptionType, string expectedExceptionMessage, string errorMessageProblemWithType, string errorMessageProblemWithMessage) 
+            : this(expectedExceptionType, errorMessageProblemWithType, errorMessageProblemWithMessage)
         {
-            this.expectedExceptionType = expectedExceptionType;
             this.expectedExceptionMessage = expectedExceptionMessage;
         }
 
@@ -28,11 +27,11 @@ namespace RaceStatistics.Test.Utilities
         {
             Assert.IsNotNull(exception);
 
-            Assert.IsInstanceOfType(exception, expectedExceptionType, "Wrong type of exception was thrown.");
+            Assert.IsInstanceOfType(exception, expectedExceptionType, errorMessageProblemWithType);
 
             if (!expectedExceptionMessage.Length.Equals(0))
             {
-                Assert.AreEqual(expectedExceptionMessage, exception.Message, "Wrong exception message was returned.");
+                Assert.AreEqual(expectedExceptionMessage, exception.Message, errorMessageProblemWithMessage);
             }
         }
     }

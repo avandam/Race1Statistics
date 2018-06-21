@@ -17,7 +17,7 @@ namespace RaceStatistics.Logic.Tests
         }
 
         [TestMethod]
-        [ExpectedExceptionCheckMessage(typeof(InvalidInputException), "The discipline exists")]
+        [ExpectedExceptionCheckMessage(typeof(InvalidInputException), "The discipline exists", "Exception of type 'InvalidInputException' should have been thrown", "The message of the exception is incorrect")]
         public void AddDisciplineDuplicateDisciplineTest()
         {
             RaceStats raceStats = new RaceStats(new DisciplineRepository(new DisciplineTestAddDuplicateDisciplineContext()));
@@ -25,7 +25,7 @@ namespace RaceStatistics.Logic.Tests
         }
 
         [TestMethod]
-        [ExpectedExceptionCheckMessage(typeof(InvalidInputException), "The field(s): Name should not be empty")]
+        [ExpectedExceptionCheckMessage(typeof(InvalidInputException), "The field(s): 'Name' should not be empty", "Exception of type 'InvalidInputException' should have been thrown", "The message of the exception is incorrect")]
         public void AddDisciplineEmptyDisciplineTest()
         {
             RaceStats raceStats = new RaceStats(new DisciplineRepository(new DisciplineTestAddEmptyDisciplineContext()));

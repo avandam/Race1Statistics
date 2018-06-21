@@ -35,7 +35,7 @@ namespace RaceStatistics.Logic
             }
             catch (InvalidDataFormatException ex)
             {
-                throw new InvalidInputException($"The field(s): {ex.InvalidFields} should not be empty");
+                throw new InvalidInputException($"The field(s): '{ex.InvalidFields}' should not be empty");
             }
             catch (DatabaseException ex)
             {
