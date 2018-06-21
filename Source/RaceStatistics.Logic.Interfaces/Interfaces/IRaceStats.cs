@@ -19,22 +19,25 @@ namespace RaceStatistics.Logic.Interfaces.Interfaces
         /// <returns></returns>
         /// <exception cref="ConnectionException">Thrown when retrieving the disciplines failed</exception>
         IReadOnlyCollection<IDiscipline> GetDisciplines();
-        
         /// <summary>
         /// Remove a disciplines from the system
         /// </summary>
         /// <param name="discipline">The discipline to remove</param>
         /// <exception cref="ConnectionException">Thrown when retrieving the disciplines failed</exception>
         void RemoveDiscipline(IDiscipline discipline);
+
         void AddScoreSystem(string name, int fastestLapPoints);
         List<IScoreSystem> GetScoreSystems();
         void RemoveScoreSystem(IScoreSystem scoreSystem);
+
         void AddCircuit(string name, string city, string country);
         List<ICircuit> GetCircuits();
         void RemoveCircuit(ICircuit circuit);
+
         void AddTeam(string name, string country);
         List<ITeam> GetTeams();
         void RemoveTeam(ITeam team);
+
         void AddDriver(string name, DateTime birthDate, string country);
         List<IDriver> GetDrivers();
         void RemoveDriver(IDriver driver);
