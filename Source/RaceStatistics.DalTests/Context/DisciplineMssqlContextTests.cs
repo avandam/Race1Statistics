@@ -52,7 +52,7 @@ namespace RaceStatistics.Dal.Tests.Context
 
 
         [TestMethod]
-        [ExpectedException(typeof(DisciplineExistsException), "Adding a discipline twice should fail with the correct exception")]
+        [ExpectedException(typeof(DuplicateEntryException), "Adding a discipline twice should fail with the correct exception")]
         public void AddDisciplineTwiceTest()
         {
             DisciplineMssqlContext sqlContext = new DisciplineMssqlContext();

@@ -46,6 +46,7 @@
     <Compile Include="Interfaces\IDiscipline.cs" />
     <Compile Include="Interfaces\IDriver.cs" />
     <Compile Include="Interfaces\IRaceStats.cs" />
+    <Compile Include="Interfaces\IScore.cs" />
     <Compile Include="Interfaces\IScoreSystem.cs" />
     <Compile Include="Interfaces\ITeam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

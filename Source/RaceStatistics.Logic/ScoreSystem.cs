@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using RaceStatistics.Dal.Interfaces.Models;
+using RaceStatistics.Logic.Interfaces.Interfaces;
 
 namespace RaceStatistics.Logic
 {
-    public class ScoreSystem
+    public class ScoreSystem : IScoreSystem
     {
         private List<Score> scores;
 
@@ -28,7 +29,7 @@ namespace RaceStatistics.Logic
             throw new NotImplementedException();
         }
 
-        public void RemoveScore(Score score)
+        public void RemoveScore(IScore score)
         {
             throw new NotImplementedException();
         }

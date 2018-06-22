@@ -27,7 +27,7 @@ namespace RaceStatistics.Logic.Interfaces.Interfaces
         void RemoveDiscipline(IDiscipline discipline);
 
         void AddScoreSystem(string name, int fastestLapPoints);
-        List<IScoreSystem> GetScoreSystems();
+        IReadOnlyCollection<IScoreSystem> GetScoreSystems();
         void RemoveScoreSystem(IScoreSystem scoreSystem);
 
         void AddCircuit(string name, string city, string country);

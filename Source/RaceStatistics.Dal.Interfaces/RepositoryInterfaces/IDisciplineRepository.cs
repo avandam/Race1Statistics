@@ -10,7 +10,7 @@ namespace RaceStatistics.Dal.Interfaces.RepositoryInterfaces
         /// Adds a discipline to the system
         /// </summary>
         /// <param name="name">The name of the discipline</param>
-        /// <exception cref="DisciplineExistsException">Thrown when the discipline already exists</exception>
+        /// <exception cref="DuplicateEntryException">Thrown when the discipline already exists</exception>
         /// <exception cref="DatabaseException">Thrown when connection to the data source fails</exception>
         /// <exception cref="InvalidDataFormatException">Thrown when the input data is incorrect</exception>
         void AddDiscipline(string name);

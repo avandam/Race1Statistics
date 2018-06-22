@@ -56,9 +56,11 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="DisciplineTestContext.cs" />
+    <Compile Include="Contexts\ScoreSystemTestContext.cs" />
+    <Compile Include="Contexts\DisciplineTestContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RaceStatsTests.cs" />
+    <Compile Include="RaceStatsScoreSystemTests.cs" />
+    <Compile Include="RaceStatsDisciplineTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

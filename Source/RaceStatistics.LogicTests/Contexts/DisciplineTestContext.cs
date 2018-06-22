@@ -3,7 +3,7 @@ using RaceStatistics.Dal.ContextInterfaces;
 using RaceStatistics.Dal.Interfaces.Exceptions;
 using RaceStatistics.Dal.Interfaces.Models;
 
-namespace RaceStatistics.Logic.Tests
+namespace RaceStatistics.Logic.Tests.Contexts
 {
     class DisciplineTestContext : IDisciplineContext
     {
@@ -33,7 +33,7 @@ namespace RaceStatistics.Logic.Tests
     {
         public void AddDiscipline(string name)
         {
-            throw new DisciplineExistsException("The discipline exists");
+            throw new DuplicateEntryException("The discipline exists");
         }
 
         public List<DisciplineInfo> GetDisciplines()

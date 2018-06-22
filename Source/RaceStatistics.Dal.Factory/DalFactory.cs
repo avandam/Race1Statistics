@@ -10,5 +10,10 @@ namespace RaceStatistics.Dal.Factory
         {
             return new DisciplineRepository(new DisciplineMssqlContext());
         }
+
+        public static IScoreSystemRepository GetScoreSystemRepository()
+        {
+            return new ScoreSystemRepository(new ScoreSystemMssqlContext());
+        }
     }
 }

@@ -41,10 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\DatabaseException.cs" />
-    <Compile Include="Exceptions\DisciplineDoesNotExistException.cs" />
-    <Compile Include="Exceptions\DisciplineExistsException.cs" />
+    <Compile Include="Exceptions\EntryDoesNotExistException.cs" />
+    <Compile Include="Exceptions\DuplicateEntryException.cs" />
     <Compile Include="Exceptions\InvalidDataFormatException.cs" />
-    <Compile Include="Exceptions\InvalidSeasonException.cs" />
+    <Compile Include="Exceptions\EntryStillRelatedException.cs" />
     <Compile Include="Exceptions\SeasonExistsException.cs" />
     <Compile Include="Models\CircuitInfo.cs" />
     <Compile Include="Models\DisciplineInfo.cs" />
@@ -55,6 +55,7 @@
     <Compile Include="Models\ScoreSystemInfo.cs" />
     <Compile Include="Models\SeasonInfo.cs" />
     <Compile Include="Models\TeamInfo.cs" />
+    <Compile Include="RepositoryInterfaces\IScoreSystemRepository.cs" />
     <Compile Include="RepositoryInterfaces\IDisciplineRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

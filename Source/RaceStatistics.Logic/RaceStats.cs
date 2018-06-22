@@ -11,16 +11,18 @@ namespace RaceStatistics.Logic
     public class RaceStats : IRaceStats
     {
         private readonly List<IDiscipline> disciplines = new List<IDiscipline>();
-        private List<ScoreSystem> scoreSystems = new List<ScoreSystem>();
+        private readonly List<IScoreSystem> scoreSystems = new List<IScoreSystem>();
         private List<Circuit> circuits = new List<Circuit>();
         private List<Team> teams = new List<Team>();
         private List<Driver> drivers = new List<Driver>();
 
         private readonly IDisciplineRepository disciplineRepository;
+        private readonly IScoreSystemRepository scoreSystemRepository;
 
-        public RaceStats(IDisciplineRepository disciplineRepository)
+        public RaceStats(IDisciplineRepository disciplineRepository, IScoreSystemRepository scoreSystemRepository)
         {
             this.disciplineRepository = disciplineRepository;
+            this.scoreSystemRepository = scoreSystemRepository;
         }
 
         public void AddDiscipline(string name)
@@ -29,7 +31,7 @@ namespace RaceStatistics.Logic
             {
                 disciplineRepository.AddDiscipline(name);
             }
-            catch (DisciplineExistsException ex)
+            catch (DuplicateEntryException ex)
             {
                 throw new InvalidInputException(ex.Message);
             }
@@ -76,17 +78,52 @@ namespace RaceStatistics.Logic
 
         public void AddScoreSystem(string name, int fastestLapPoints)
         {
-            throw new NotImplementedException();
+            try
+            {
+                scoreSystemRepository.AddScoreSystem(name, fastestLapPoints);
+            }
+            catch (DuplicateEntryException ex)
+            {
+                throw new InvalidInputException(ex.Message);
+            }
+            catch (InvalidDataFormatException ex)
+            {
+                throw new InvalidInputException($"The field(s): '{ex.InvalidFields}' should not be empty");
+            }
+            catch (DatabaseException ex)
+            {
+                throw new ConnectionException(ex.Message);
+            }
         }
 
-        public List<IScoreSystem> GetScoreSystems()
+        public IReadOnlyCollection<IScoreSystem> GetScoreSystems()
         {
-            throw new NotImplementedException();
+            try
+            {
+                scoreSystems.Clear();
+                foreach (var scoreSystem in scoreSystemRepository.GetScoreSystems())
+                {
+                    scoreSystems.Add(new ScoreSystem(scoreSystem));
+                }
+                return new ReadOnlyCollection<IScoreSystem>(scoreSystems);
+
+            }
+            catch (DatabaseException ex)
+            {
+                throw new ConnectionException(ex.Message);
+            }
         }
 
         public void RemoveScoreSystem(IScoreSystem scoreSystem)
         {
-            throw new NotImplementedException();
+            try
+            {
+                scoreSystemRepository.RemoveScoreSystem(scoreSystem.Name);
+            }
+            catch (DatabaseException ex)
+            {
+                throw new ConnectionException(ex.Message);
+            }
         }
 
         public void AddCircuit(string name, string city, string country)

@@ -11,33 +11,32 @@ namespace RaceStatistics.Dal.Context
     {
         public void AddDiscipline(string name)
         {
-            if (!DisciplineExists(name))
+            if (DisciplineExists(name))
             {
-                try
-                {
-                    using (SqlConnection connection = Database.Connection)
-                    {
-                        string query = "INSERT INTO RS_Discipline (Name) VALUES (@DisciplineName)";
+                throw new DuplicateEntryException($"The discipline with name '{name}' already exists.");
+            }
 
-                        using (SqlCommand command = new SqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@DisciplineName", name);
-                            command.ExecuteNonQuery();
-                        }
-                    }
-                }
-                catch (Exception ex)
+            try
+            {
+                using (SqlConnection connection = Database.Connection)
                 {
-                    if (ex.Message.Contains("CK_RS_Discipline_NameNotEmpty"))
+                    string query = "INSERT INTO RS_Discipline (Name) VALUES (@DisciplineName)";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        throw new InvalidDataFormatException(ex.Message, "Name");
+                        command.Parameters.AddWithValue("@DisciplineName", name);
+                        command.ExecuteNonQuery();
                     }
-                    throw new DatabaseException(ex.Message);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                throw new DisciplineExistsException($"The discipline with name '{name}' already exists.");
+                if (ex.Message.Contains("CK_RS_Discipline_NameNotEmpty"))
+                {
+                    throw new InvalidDataFormatException(ex.Message, "Name");
+                }
+
+                throw new DatabaseException(ex.Message);
             }
         }
 
@@ -113,6 +112,7 @@ namespace RaceStatistics.Dal.Context
             }
             catch (Exception ex)
             {
+                // TODO: Fix FK issue specific exception
                 throw new DatabaseException(ex.Message);
             }
         }

@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Context\BaseTests.cs" />
+    <Compile Include="Context\ScoreSystemMssqlContextTests.cs" />
     <Compile Include="Context\DisciplineMssqlContextTests.cs" />
     <Compile Include="Context\SeasonMssqlContextTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

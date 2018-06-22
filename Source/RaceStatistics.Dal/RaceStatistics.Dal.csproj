@@ -51,13 +51,16 @@
   <ItemGroup>
     <Compile Include="ConnectionSettings.cs" />
     <Compile Include="ContextInterfaces\IDisciplineSeasonContext.cs" />
+    <Compile Include="ContextInterfaces\IScoreSystemContext.cs" />
     <Compile Include="ContextInterfaces\ISeasonContext.cs" />
     <Compile Include="ContextInterfaces\IDisciplineContext.cs" />
     <Compile Include="Context\DisciplineSeasonMssqlContext.cs" />
+    <Compile Include="Context\ScoreSystemMssqlContext.cs" />
     <Compile Include="Context\SeasonMssqlContext.cs" />
     <Compile Include="Context\DisciplineMssqlContext.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ScoreSystemRepository.cs" />
     <Compile Include="Repositories\DisciplineRepository.cs" />
   </ItemGroup>
   <ItemGroup>

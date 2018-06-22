@@ -8,7 +8,7 @@ namespace RaceStatistics.Logic.Factory
     {
         public static IRaceStats GetRaceStats()
         {
-            return new RaceStats(DalFactory.GetDisciplineRepository());
+            return new RaceStats(DalFactory.GetDisciplineRepository(), DalFactory.GetScoreSystemRepository());
         }
     }
 }
