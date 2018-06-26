@@ -8,7 +8,6 @@
         mc:Ignorable="d"
         Title="Discipline Overview" Height="550" Width="525">
     <DockPanel>
-
         <Ribbon DockPanel.Dock="Top">
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu>
@@ -17,7 +16,7 @@
             </Ribbon.ApplicationMenu>
             <RibbonTab Header="Manage">
                 <RibbonGroup Header="Disciplines">
-                    <RibbonButton Label="View"></RibbonButton>
+                    <RibbonButton Label="View" Click="ViewDisciplines_OnClick"></RibbonButton>
                 </RibbonGroup>
                 <RibbonGroup Header="ScoreSystems">
                     <RibbonButton Label="View" ></RibbonButton>

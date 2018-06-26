@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Ribbon;
-using RaceStatistics.Logic.Factory;
-using RaceStatistics.Logic.Interfaces.Exceptions;
 using RaceStatistics.Logic.Interfaces.Interfaces;
 
 namespace RaceStatistics
@@ -25,9 +22,20 @@ namespace RaceStatistics
             GrdMain.Children.Add(disciplineOverview);
         }
 
+        private void ViewDisciplines_OnClick(object sender, RoutedEventArgs e)
+        {
+            ShowDisciplines();
+        }
+
+        public void ShowDisciplines()
+        {
+            HideAllUserControls();
+            GrdMain.Children.Add(customControls["Discipline"]);
+        }
+
         public void ShowSeasons(IDiscipline discipline)
         {
-            RemoveAllUserControls();
+            HideAllUserControls();
             SeasonOverview seasonOverview = new SeasonOverview(this);
             AddCustomControl("Season", seasonOverview);
             GrdMain.Children.Add(seasonOverview);
@@ -35,7 +43,7 @@ namespace RaceStatistics
 
         public void CloseSeason()
         {
-            RemoveAllUserControls();
+            HideAllUserControls();
             RemoveCustomControl("Season");
             GrdMain.Children.Add(customControls["Discipline"]);
         }
@@ -60,8 +68,7 @@ namespace RaceStatistics
             }
         }
 
-
-        public void RemoveAllUserControls()
+        public void HideAllUserControls()
         {
             foreach (var control in customControls)
             {
@@ -71,5 +78,6 @@ namespace RaceStatistics
                 }
             }
         }
+
     }
 }
