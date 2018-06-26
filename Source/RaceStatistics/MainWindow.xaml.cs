@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Ribbon;
 using RaceStatistics.Logic.Factory;
 using RaceStatistics.Logic.Interfaces.Exceptions;
 using RaceStatistics.Logic.Interfaces.Interfaces;
@@ -10,77 +13,63 @@ namespace RaceStatistics
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     // ReSharper disable once RedundantExtendsListEntry
-    public partial class MainWindow : Window
+    public partial class MainWindow : RibbonWindow
     {
-        private readonly IRaceStats raceStats;
+        private readonly Dictionary<string, UserControl> customControls = new Dictionary<string, UserControl>();
+
         public MainWindow()
         {
             InitializeComponent();
-            raceStats = LogicFactory.GetRaceStats();
-            UpdateUi();
+            DisciplineOverview disciplineOverview = new DisciplineOverview(this);
+            customControls.Add("Discipline", disciplineOverview);
+            GrdMain.Children.Add(disciplineOverview);
         }
 
-        private void BtnAddDiscipline_Click(object sender, RoutedEventArgs e)
+        public void ShowSeasons(IDiscipline discipline)
         {
-            if (!String.IsNullOrEmpty(TxtAddDiscipline.Text))
-            {
-                try
-                {
-                    raceStats.AddDiscipline(TxtAddDiscipline.Text);
-                }
-                catch (InvalidInputException exception)
-                {
-                    MessageBox.Show($"Input error on adding a discipline.\nError: {exception.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                catch (ConnectionException exception)
-                {
-                    MessageBox.Show($"Error adding discipline.\nError: {exception.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+            RemoveAllUserControls();
+            SeasonOverview seasonOverview = new SeasonOverview(this);
+            AddCustomControl("Season", seasonOverview);
+            GrdMain.Children.Add(seasonOverview);
+        }
 
-                UpdateUi();
+        public void CloseSeason()
+        {
+            RemoveAllUserControls();
+            RemoveCustomControl("Season");
+            GrdMain.Children.Add(customControls["Discipline"]);
+        }
+
+        private void AddCustomControl(string name, UserControl control)
+        {
+            if (customControls.ContainsKey(name))
+            {
+                customControls[name] = control;
             }
             else
             {
-                MessageBox.Show("Please fill in a discipline name before you add it.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                customControls.Add(name, control);
             }
         }
 
-        private void BtnRemoveDiscipline_Click(object sender, RoutedEventArgs e)
+        private void RemoveCustomControl(string name)
         {
-            if (LvDisciplines.SelectedIndex >= 0)
+            if (customControls.ContainsKey(name))
             {
-                IDiscipline selectedDiscipline = LvDisciplines.SelectedItem as IDiscipline;
-                try
-                {
-                    raceStats.RemoveDiscipline(selectedDiscipline);
-
-                }
-                catch (Exception exception)
-                {
-                    MessageBox.Show($"Could not remove the disciplines\nError: {exception.Message}", "Error",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-
-                UpdateUi();
+                customControls.Remove(name);
             }
         }
 
-        public void UpdateUi()
+
+        public void RemoveAllUserControls()
         {
-
-            try
+            foreach (var control in customControls)
             {
-                LvDisciplines.ItemsSource = raceStats.GetDisciplines();
-
+                if (GrdMain.Children.Contains(control.Value))
+                {
+                    GrdMain.Children.Remove(control.Value);
+                }
             }
-            catch (ConnectionException exception)
-            {
-                MessageBox.Show($"Could not get the disciplines\nError: {exception.Message}", "Error",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                LvDisciplines.ItemsSource = null;
-            }
-
-            LvDisciplines.Items.Refresh();
         }
     }
 }

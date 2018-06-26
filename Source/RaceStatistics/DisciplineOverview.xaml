@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="RaceStatistics.DisciplineOverview"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RaceStatistics"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="175"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.Column="0" Grid.Row="0" Grid.RowSpan="6" HorizontalAlignment="Left" VerticalAlignment="Top" Name="LvDisciplines" Width="290" Height="290">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165" Height="25" Name="TxtAddDiscipline" Margin="0,0,-14,0"/>
+        <Button Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Content="Add Discipline" Width="165" Name="BtnAddDiscipline" Click="BtnAddDiscipline_Click" Margin="0,0,-14,0"></Button>
+        <Label Grid.Column="1" Grid.Row="2" Content="Actions on selected discipline" Margin="0,0,-55,0"></Label>
+        <Button Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Content="Remove Discipline" Width="165" Name="BtnRemoveDiscipline" Click="BtnRemoveDiscipline_Click" Margin="0,0,-14,0"></Button>
+        <Button Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Content="Show Seasons" Width="165" Name="BtnShowSeasons" Margin="0,0,-14,0" Click="BtnShowSeasons_Click"></Button>
+    </Grid>
+</UserControl>
