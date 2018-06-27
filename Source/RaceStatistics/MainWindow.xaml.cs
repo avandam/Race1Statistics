@@ -6,9 +6,6 @@ using RaceStatistics.Logic.Interfaces.Interfaces;
 
 namespace RaceStatistics
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     // ReSharper disable once RedundantExtendsListEntry
     public partial class MainWindow : RibbonWindow
     {

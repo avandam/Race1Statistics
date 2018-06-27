@@ -7,9 +7,7 @@ using RaceStatistics.Logic.Interfaces.Interfaces;
 
 namespace RaceStatistics
 {
-    /// <summary>
-    /// Interaction logic for DisciplineOverview.xaml
-    /// </summary>
+    // ReSharper disable once RedundantExtendsListEntry
     public partial class DisciplineOverview : UserControl
     {
         private readonly IRaceStats raceStats;
