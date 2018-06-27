@@ -91,7 +91,7 @@ namespace RaceStatistics
 
         private void BtnShowSeasons_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.ShowSeasons(LvDisciplines.SelectedItem as IDiscipline);
+            mainWindow.EditSeasons(LvDisciplines.SelectedItem as IDiscipline);
         }
     }
 }

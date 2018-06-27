@@ -16,11 +16,10 @@
             </Ribbon.ApplicationMenu>
             <RibbonTab Header="Manage">
                 <RibbonGroup Header="Disciplines">
-                    <RibbonButton Label="View" Click="ViewDisciplines_OnClick"></RibbonButton>
+                    <RibbonButton Label="Edit" Click="EditDisciplines_Click"></RibbonButton>
                 </RibbonGroup>
                 <RibbonGroup Header="ScoreSystems">
-                    <RibbonButton Label="View" ></RibbonButton>
-                    <RibbonButton Label="Edit"></RibbonButton>
+                    <RibbonButton Label="Edit" Click="EditScoreSystems_Click"></RibbonButton>
                 </RibbonGroup>
             </RibbonTab>
         </Ribbon>

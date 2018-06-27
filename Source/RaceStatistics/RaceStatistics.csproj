@@ -55,12 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ScoreSystemOverview.xaml.cs">
+      <DependentUpon>ScoreSystemOverview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DisciplineOverview.xaml.cs">
       <DependentUpon>DisciplineOverview.xaml</DependentUpon>
     </Compile>
     <Compile Include="SeasonOverview.xaml.cs">
       <DependentUpon>SeasonOverview.xaml</DependentUpon>
     </Compile>
+    <Page Include="ScoreSystemOverview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DisciplineOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

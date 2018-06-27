@@ -19,24 +19,46 @@ namespace RaceStatistics
             GrdMain.Children.Add(disciplineOverview);
         }
 
-        private void ViewDisciplines_OnClick(object sender, RoutedEventArgs e)
+        #region Ribbon button handles
+        private void EditDisciplines_Click(object sender, RoutedEventArgs e)
         {
             ShowDisciplines();
         }
 
+        private void EditScoreSystems_Click(object sender, RoutedEventArgs e)
+        {
+            ShowScoreSystems();
+        }
+        #endregion Ribbon button handles
+
+        #region Actions
         public void ShowDisciplines()
         {
             HideAllUserControls();
             GrdMain.Children.Add(customControls["Discipline"]);
         }
 
-        public void ShowSeasons(IDiscipline discipline)
+        public void ShowScoreSystems()
+        {
+            HideAllUserControls();
+            ScoreSystemOverview scoreSystemOverview = new ScoreSystemOverview(this);
+            AddCustomControl("ScoreSystem", scoreSystemOverview);
+            GrdMain.Children.Add(scoreSystemOverview);
+        }
+
+        public void EditSeasons(IDiscipline discipline)
         {
             HideAllUserControls();
             SeasonOverview seasonOverview = new SeasonOverview(this);
             AddCustomControl("Season", seasonOverview);
             GrdMain.Children.Add(seasonOverview);
         }
+
+        public void EditScores(IScoreSystem scoreSystem)
+        {
+            throw new System.NotImplementedException();
+        }
+
 
         public void CloseSeason()
         {
@@ -45,6 +67,9 @@ namespace RaceStatistics
             GrdMain.Children.Add(customControls["Discipline"]);
         }
 
+        #endregion Actions
+
+        #region Control management
         private void AddCustomControl(string name, UserControl control)
         {
             if (customControls.ContainsKey(name))
@@ -65,7 +90,7 @@ namespace RaceStatistics
             }
         }
 
-        public void HideAllUserControls()
+        private void HideAllUserControls()
         {
             foreach (var control in customControls)
             {
@@ -75,6 +100,7 @@ namespace RaceStatistics
                 }
             }
         }
+        #endregion Control management
 
     }
 }
