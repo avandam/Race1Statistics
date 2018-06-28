@@ -55,7 +55,6 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Content="Remove Discipline" Width="165" Name="BtnRemoveDiscipline" Click="BtnRemoveDiscipline_Click" Margin="0,0,-14,0"></Button>
                 <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Content="Show Seasons" Width="165" Name="BtnShowSeasons" Margin="0,0,-14,0" Click="BtnShowSeasons_Click"></Button>
-
             </Grid>
         </GroupBox>
     </Grid>

@@ -26,7 +26,8 @@
         <ListView Grid.Column="0" Grid.Row="1" Grid.RowSpan="7" HorizontalAlignment="Left" VerticalAlignment="Top" Name="LvScoreSystems" Width="290" Height="290">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="160"/>
+                    <GridViewColumn Header="Points For Fastest Lap" DisplayMemberBinding="{Binding PointsForFastestLap}"/>
                 </GridView>
             </ListView.View>
         </ListView>
