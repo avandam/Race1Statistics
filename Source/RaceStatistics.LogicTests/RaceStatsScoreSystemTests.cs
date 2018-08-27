@@ -16,7 +16,7 @@ namespace RaceStatistics.Logic.Tests
         {
             // No relevant test for the happy flow can be created here, so no test created. 
         }
-
+ 
         [TestMethod]
         [ExpectedExceptionCheckMessage(typeof(InvalidInputException), "The ScoreSystem exists", "Exception of type 'InvalidInputException' should have been thrown", "The message of the exception is incorrect")]
         public void AddScoreSystemDuplicateScoreSystemTest()

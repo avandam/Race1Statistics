@@ -1,5 +1,3 @@
-ALTER TABLE RS_Score_ScoreSystem DROP CONSTRAINT FKRS_Score_S573394;
-ALTER TABLE RS_Score_ScoreSystem DROP CONSTRAINT FKRS_Score_S871715;
 ALTER TABLE RS_Season DROP CONSTRAINT FKRS_Season352460;
 ALTER TABLE RS_Discipline_Season DROP CONSTRAINT FKRS_Discipl869133;
 ALTER TABLE RS_Discipline_Season DROP CONSTRAINT FKRS_Discipl988885;
@@ -13,9 +11,9 @@ ALTER TABLE RS_Result DROP CONSTRAINT FKRS_Result944748;
 ALTER TABLE RS_Driver_Team_season DROP CONSTRAINT FKRS_Driver_733402;
 ALTER TABLE RS_Team DROP CONSTRAINT FKRS_Team997945;
 ALTER TABLE RS_GrandPrix DROP CONSTRAINT FKRS_GrandPr633879;
+ALTER TABLE RS_Score DROP CONSTRAINT FKRS_Score982174;
 DROP TABLE RS_Score;
 DROP TABLE RS_ScoreSystem;
-DROP TABLE RS_Score_ScoreSystem;
 DROP TABLE RS_Season;
 DROP TABLE RS_Discipline;
 DROP TABLE RS_Discipline_Season;
@@ -26,9 +24,8 @@ DROP TABLE RS_Circuit;
 DROP TABLE RS_Result;
 DROP TABLE RS_Driver;
 DROP TABLE RS_Driver_Team_season;
-CREATE TABLE RS_Score (Id int IDENTITY NOT NULL, Place int NOT NULL, Points int NOT NULL, PRIMARY KEY (Id));
+CREATE TABLE RS_Score (Id int IDENTITY NOT NULL, Place int NOT NULL, Points int NOT NULL, RS_ScoreSystemId int NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE RS_ScoreSystem (Id int IDENTITY NOT NULL, Name varchar(255) NOT NULL UNIQUE, FastestLapPoints int DEFAULT 0 NOT NULL, PRIMARY KEY (Id));
-CREATE TABLE RS_Score_ScoreSystem (ScoreId int NOT NULL, ScoreSystemId int NOT NULL, PRIMARY KEY (ScoreId, ScoreSystemId));
 CREATE TABLE RS_Season (Id int IDENTITY NOT NULL, Year int NOT NULL, ScoreSystemId int NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE RS_Discipline (Id int IDENTITY NOT NULL, Name varchar(100) NOT NULL UNIQUE, PRIMARY KEY (Id), CONSTRAINT CK_RS_Discipline_NameNotEmpty CHECK (Name <> ""));
 CREATE TABLE RS_Discipline_Season (DisciplineId int NOT NULL, SeasonId int NOT NULL, PRIMARY KEY (DisciplineId, SeasonId));
@@ -37,14 +34,8 @@ CREATE TABLE RS_Season_Team (SeasonId int NOT NULL, TeamId int NOT NULL, PRIMARY
 CREATE TABLE RS_GrandPrix (Id int IDENTITY NOT NULL, Name varchar(100) NOT NULL, [Date] date NULL, CircuitId int NOT NULL, SeasonId int NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE RS_Circuit (Id int IDENTITY NOT NULL, Name varchar(100) NOT NULL, City varchar(100) NOT NULL, Country varchar(100) NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE RS_Result (GrandPrixId int NOT NULL, DriverId int NOT NULL, Place int NOT NULL, HasFastestLap bit DEFAULT '0' NOT NULL, Status int DEFAULT 0 NOT NULL, PRIMARY KEY (GrandPrixId, DriverId));
-EXEC sp_addextendedproperty @NAME = N'MS_Description', @VALUE = N'0 = Gefinished
-1 = NietGefinished
-2 = NietGestart
-3 = NietGekwalificeerd', @LEVEL0TYPE = N'Schema', @LEVEL0NAME = N'dbo', @LEVEL1TYPE = N'Table', @LEVEL1NAME = N'RS_Result', @LEVEL2TYPE = N'Column', @LEVEL2NAME = N'Status';
 CREATE TABLE RS_Driver (Id int IDENTITY NOT NULL, Name varchar(100) NOT NULL, BirthDate date NULL, Country varchar(100) NOT NULL, PRIMARY KEY (Id));
 CREATE TABLE RS_Driver_Team_season (TeamId int NOT NULL, DriverId int NOT NULL, SeasonId int NOT NULL, PRIMARY KEY (TeamId, DriverId, SeasonId));
-ALTER TABLE RS_Score_ScoreSystem ADD CONSTRAINT FKRS_Score_S573394 FOREIGN KEY (ScoreId) REFERENCES RS_Score (Id);
-ALTER TABLE RS_Score_ScoreSystem ADD CONSTRAINT FKRS_Score_S871715 FOREIGN KEY (ScoreSystemId) REFERENCES RS_ScoreSystem (Id);
 ALTER TABLE RS_Season ADD CONSTRAINT FKRS_Season352460 FOREIGN KEY (ScoreSystemId) REFERENCES RS_ScoreSystem (Id);
 ALTER TABLE RS_Discipline_Season ADD CONSTRAINT FKRS_Discipl869133 FOREIGN KEY (DisciplineId) REFERENCES RS_Discipline (Id);
 ALTER TABLE RS_Discipline_Season ADD CONSTRAINT FKRS_Discipl988885 FOREIGN KEY (SeasonId) REFERENCES RS_Season (Id);
@@ -58,3 +49,4 @@ ALTER TABLE RS_Result ADD CONSTRAINT FKRS_Result944748 FOREIGN KEY (DriverId) RE
 ALTER TABLE RS_Driver_Team_season ADD CONSTRAINT FKRS_Driver_733402 FOREIGN KEY (SeasonId) REFERENCES RS_Season (Id);
 ALTER TABLE RS_Team ADD CONSTRAINT FKRS_Team997945 FOREIGN KEY (BaseTeam) REFERENCES RS_Team (Id);
 ALTER TABLE RS_GrandPrix ADD CONSTRAINT FKRS_GrandPr633879 FOREIGN KEY (SeasonId) REFERENCES RS_Season (Id);
+ALTER TABLE RS_Score ADD CONSTRAINT FKRS_Score982174 FOREIGN KEY (RS_ScoreSystemId) REFERENCES RS_ScoreSystem (Id);
