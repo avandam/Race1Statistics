@@ -10,14 +10,14 @@ namespace RaceStatistics
     // ReSharper disable once RedundantExtendsListEntry
     public partial class DisciplineOverview : UserControl
     {
-        private readonly IRaceStats raceStats;
+        private readonly IDisciplineCollection disciplineCollection;
 
         private readonly MainWindow mainWindow;
 
         public DisciplineOverview()
         {
             InitializeComponent();
-            raceStats = LogicFactory.GetRaceStats();
+            disciplineCollection = LogicFactory.GetDisciplineCollection();
             UpdateUi();
         }
 
@@ -32,7 +32,7 @@ namespace RaceStatistics
             {
                 try
                 {
-                    raceStats.AddDiscipline(TxtAddDiscipline.Text);
+                    disciplineCollection.AddDiscipline(TxtAddDiscipline.Text);
                 }
                 catch (InvalidInputException exception)
                 {
@@ -58,7 +58,7 @@ namespace RaceStatistics
                 IDiscipline selectedDiscipline = LvDisciplines.SelectedItem as IDiscipline;
                 try
                 {
-                    raceStats.RemoveDiscipline(selectedDiscipline);
+                    disciplineCollection.RemoveDiscipline(selectedDiscipline);
 
                 }
                 catch (Exception exception)
@@ -76,7 +76,7 @@ namespace RaceStatistics
 
             try
             {
-                LvDisciplines.ItemsSource = raceStats.GetDisciplines();
+                LvDisciplines.ItemsSource = disciplineCollection.GetDisciplines();
 
             }
             catch (ConnectionException exception)

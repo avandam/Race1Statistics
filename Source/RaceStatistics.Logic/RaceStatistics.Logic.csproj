@@ -42,10 +42,14 @@
   <ItemGroup>
     <Compile Include="Circuit.cs" />
     <Compile Include="Discipline.cs" />
+    <Compile Include="CircuitCollection.cs" />
+    <Compile Include="DriverCollection.cs" />
+    <Compile Include="TeamCollection.cs" />
+    <Compile Include="ScoreSystemCollection.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Race.cs" />
-    <Compile Include="RaceStats.cs" />
+    <Compile Include="DisciplineCollection.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="Score.cs" />
     <Compile Include="ScoreSystem.cs" />

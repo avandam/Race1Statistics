@@ -9,7 +9,7 @@ using RaceStatistics.Test.Utilities;
 namespace RaceStatistics.Logic.Tests
 {
     [TestClass]
-    public class RaceStatsTests
+    public class ScoreSystemCollectionTests
     {
         //[TestMethod]
         public void AddScoreSystemTest()
@@ -21,31 +21,31 @@ namespace RaceStatistics.Logic.Tests
         [ExpectedExceptionCheckMessage(typeof(InvalidInputException), "The ScoreSystem exists", "Exception of type 'InvalidInputException' should have been thrown", "The message of the exception is incorrect")]
         public void AddScoreSystemDuplicateScoreSystemTest()
         {
-            RaceStats raceStats = new RaceStats(null, new ScoreSystemRepository(new ScoreSystemTestAddDuplicateScoreSystemContext()));
-            raceStats.AddScoreSystem("System 1", 0);
+            ScoreSystemCollection scoreSystemCollection = new ScoreSystemCollection(new ScoreSystemRepository(new ScoreSystemTestAddDuplicateScoreSystemContext()));
+            scoreSystemCollection.AddScoreSystem("System 1", 0);
         }
 
         [TestMethod]
         [ExpectedExceptionCheckMessage(typeof(InvalidInputException), "The field(s): 'Name' should not be empty", "Exception of type 'InvalidInputException' should have been thrown", "The message of the exception is incorrect")]
         public void AddScoreSystemEmptyScoreSystemTest()
         {
-            RaceStats raceStats = new RaceStats(null, new ScoreSystemRepository(new ScoreSystemTestAddEmptyScoreSystemContext()));
-            raceStats.AddScoreSystem("System 1", 0);
+            ScoreSystemCollection scoreSystemCollection = new ScoreSystemCollection(new ScoreSystemRepository(new ScoreSystemTestAddEmptyScoreSystemContext()));
+            scoreSystemCollection.AddScoreSystem("System 1", 0);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ConnectionException), "A connection exception should be thrown")]
         public void AddScoreSystemDatabaseErrorTest()
         {
-            RaceStats raceStats = new RaceStats(null, new ScoreSystemRepository(new ScoreSystemTestConnectionErrorContext()));
-            raceStats.AddScoreSystem("System 1", 0);
+            ScoreSystemCollection scoreSystemCollection = new ScoreSystemCollection(new ScoreSystemRepository(new ScoreSystemTestConnectionErrorContext()));
+            scoreSystemCollection.AddScoreSystem("System 1", 0);
         }
 
         [TestMethod]
         public void GetScoreSystemsTest()
         {
-            RaceStats raceStats = new RaceStats(null, new ScoreSystemRepository(new ScoreSystemTestContext()));
-            ReadOnlyCollection<IScoreSystem> scoreSystems = raceStats.GetScoreSystems() as ReadOnlyCollection<IScoreSystem>;
+            ScoreSystemCollection scoreSystemCollection = new ScoreSystemCollection(new ScoreSystemRepository(new ScoreSystemTestContext()));
+            ReadOnlyCollection<IScoreSystem> scoreSystems = scoreSystemCollection.GetScoreSystems() as ReadOnlyCollection<IScoreSystem>;
             Assert.IsNotNull(scoreSystems, "There should be a correct list of ScoreSystems");
             Assert.AreEqual(2, scoreSystems.Count, "There should be 2 ScoreSystems");
             Assert.AreEqual("System 1", scoreSystems[0].Name, "There should be System 1 first");
@@ -56,8 +56,8 @@ namespace RaceStatistics.Logic.Tests
         [ExpectedException(typeof(ConnectionException), "A connection exception should be thrown")]
         public void GetScoreSystemsDatabaseErrorTest()
         {
-            RaceStats raceStats = new RaceStats(null, new ScoreSystemRepository(new ScoreSystemTestConnectionErrorContext()));
-            raceStats.GetScoreSystems();
+            ScoreSystemCollection scoreSystemCollection = new ScoreSystemCollection(new ScoreSystemRepository(new ScoreSystemTestConnectionErrorContext()));
+            scoreSystemCollection.GetScoreSystems();
         }
 
 
@@ -71,8 +71,8 @@ namespace RaceStatistics.Logic.Tests
         [ExpectedException(typeof(ConnectionException), "A connection exception should be thrown")]
         public void RemoveScoreSystemDatabaseErrorTest()
         {
-            RaceStats raceStats = new RaceStats(null, new ScoreSystemRepository(new ScoreSystemTestConnectionErrorContext()));
-            raceStats.RemoveScoreSystem(new ScoreSystem("System 1", 0));
+            ScoreSystemCollection scoreSystemCollection = new ScoreSystemCollection(new ScoreSystemRepository(new ScoreSystemTestConnectionErrorContext()));
+            scoreSystemCollection.RemoveScoreSystem(new ScoreSystem("System 1", 0));
         }
 
     }

@@ -4,7 +4,7 @@ using RaceStatistics.Logic.Interfaces.Exceptions;
 
 namespace RaceStatistics.Logic.Interfaces.Interfaces
 {
-    public interface IRaceStats
+    public interface IDisciplineCollection
     {
         /// <summary>
         /// Add a discipline to the system
@@ -25,21 +25,5 @@ namespace RaceStatistics.Logic.Interfaces.Interfaces
         /// <param name="discipline">The discipline to remove</param>
         /// <exception cref="ConnectionException">Thrown when retrieving the disciplines failed</exception>
         void RemoveDiscipline(IDiscipline discipline);
-
-        void AddScoreSystem(string name, int fastestLapPoints);
-        IReadOnlyCollection<IScoreSystem> GetScoreSystems();
-        void RemoveScoreSystem(IScoreSystem scoreSystem);
-
-        void AddCircuit(string name, string city, string country);
-        List<ICircuit> GetCircuits();
-        void RemoveCircuit(ICircuit circuit);
-
-        void AddTeam(string name, string country);
-        List<ITeam> GetTeams();
-        void RemoveTeam(ITeam team);
-
-        void AddDriver(string name, DateTime birthDate, string country);
-        List<IDriver> GetDrivers();
-        void RemoveDriver(IDriver driver);
     }
 }

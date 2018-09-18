@@ -9,7 +9,7 @@ using RaceStatistics.Test.Utilities;
 namespace RaceStatistics.Logic.Tests
 {
     [TestClass]
-    public class RaceStatsDisciplineTests
+    public class DisciplineCollectionDisciplineTests
     {
         //[TestMethod]
         public void AddDisciplineTest()
@@ -21,31 +21,31 @@ namespace RaceStatistics.Logic.Tests
         [ExpectedExceptionCheckMessage(typeof(InvalidInputException), "The discipline exists", "Exception of type 'InvalidInputException' should have been thrown", "The message of the exception is incorrect")]
         public void AddDisciplineDuplicateDisciplineTest()
         {
-            RaceStats raceStats = new RaceStats(new DisciplineRepository(new DisciplineTestAddDuplicateDisciplineContext()), null);
-            raceStats.AddDiscipline("Name");
+            DisciplineCollection disciplineCollection = new DisciplineCollection(new DisciplineRepository(new DisciplineTestAddDuplicateDisciplineContext()));
+            disciplineCollection.AddDiscipline("Name");
         }
 
         [TestMethod]
         [ExpectedExceptionCheckMessage(typeof(InvalidInputException), "The field(s): 'Name' should not be empty", "Exception of type 'InvalidInputException' should have been thrown", "The message of the exception is incorrect")]
         public void AddDisciplineEmptyDisciplineTest()
         {
-            RaceStats raceStats = new RaceStats(new DisciplineRepository(new DisciplineTestAddEmptyDisciplineContext()), null);
-            raceStats.AddDiscipline("Name");
+            DisciplineCollection disciplineCollection = new DisciplineCollection(new DisciplineRepository(new DisciplineTestAddEmptyDisciplineContext()));
+            disciplineCollection.AddDiscipline("Name");
         }
 
         [TestMethod]
         [ExpectedException(typeof(ConnectionException), "A connection exception should be thrown")]
         public void AddDisciplineDatabaseErrorTest()
         {
-            RaceStats raceStats = new RaceStats(new DisciplineRepository(new DisciplineTestConnectionErrorContext()), null);
-            raceStats.AddDiscipline("Name");
+            DisciplineCollection disciplineCollection = new DisciplineCollection(new DisciplineRepository(new DisciplineTestConnectionErrorContext()));
+            disciplineCollection.AddDiscipline("Name");
         }
 
         [TestMethod]
         public void GetDisciplinesTest()
         {
-            RaceStats raceStats = new RaceStats(new DisciplineRepository(new DisciplineTestContext()), null);
-            ReadOnlyCollection<IDiscipline> disciplines = raceStats.GetDisciplines() as ReadOnlyCollection<IDiscipline>;
+            DisciplineCollection disciplineCollection = new DisciplineCollection(new DisciplineRepository(new DisciplineTestContext()));
+            ReadOnlyCollection<IDiscipline> disciplines = disciplineCollection.GetDisciplines() as ReadOnlyCollection<IDiscipline>;
             Assert.IsNotNull(disciplines, "There should be a correct list of disciplines");
             Assert.AreEqual(2, disciplines.Count, "There should be 2 disciplines");
             Assert.AreEqual("Formula 1", disciplines[0].Name, "There should be Formula 1 first");
@@ -56,8 +56,8 @@ namespace RaceStatistics.Logic.Tests
         [ExpectedException(typeof(ConnectionException), "A connection exception should be thrown")]
         public void GetDisciplinesDatabaseErrorTest()
         {
-            RaceStats raceStats = new RaceStats(new DisciplineRepository(new DisciplineTestConnectionErrorContext()), null);
-            raceStats.GetDisciplines();
+            DisciplineCollection disciplineCollection = new DisciplineCollection(new DisciplineRepository(new DisciplineTestConnectionErrorContext()));
+            disciplineCollection.GetDisciplines();
         }
 
 
@@ -71,8 +71,8 @@ namespace RaceStatistics.Logic.Tests
         [ExpectedException(typeof(ConnectionException), "A connection exception should be thrown")]
         public void RemoveDisciplineDatabaseErrorTest()
         {
-            RaceStats raceStats = new RaceStats(new DisciplineRepository(new DisciplineTestConnectionErrorContext()), null);
-            raceStats.RemoveDiscipline(new Discipline("Name"));
+            DisciplineCollection disciplineCollection = new DisciplineCollection(new DisciplineRepository(new DisciplineTestConnectionErrorContext()));
+            disciplineCollection.RemoveDiscipline(new Discipline("Name"));
         }
 
     }

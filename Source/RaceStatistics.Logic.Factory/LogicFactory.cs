@@ -6,9 +6,14 @@ namespace RaceStatistics.Logic.Factory
 {
     public static class LogicFactory
     {
-        public static IRaceStats GetRaceStats()
+        public static IDisciplineCollection GetDisciplineCollection()
         {
-            return new RaceStats(DalFactory.GetDisciplineRepository(), DalFactory.GetScoreSystemRepository());
+            return new DisciplineCollection(DalFactory.GetDisciplineRepository());
+        }
+
+        public static IScoreSystemCollection GetScoreSystemCollection()
+        {
+            return new ScoreSystemCollection(DalFactory.GetScoreSystemRepository());
         }
     }
 }

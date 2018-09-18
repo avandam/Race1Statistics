@@ -44,8 +44,12 @@
     <Compile Include="Exceptions\InvalidInputException.cs" />
     <Compile Include="Interfaces\ICircuit.cs" />
     <Compile Include="Interfaces\IDiscipline.cs" />
+    <Compile Include="Interfaces\IDriverCollection.cs" />
+    <Compile Include="Interfaces\ITeamCollection.cs" />
+    <Compile Include="Interfaces\ICiruitCollection.cs" />
+    <Compile Include="Interfaces\IScoreSystemCollection.cs" />
     <Compile Include="Interfaces\IDriver.cs" />
-    <Compile Include="Interfaces\IRaceStats.cs" />
+    <Compile Include="Interfaces\IDisciplineCollection.cs" />
     <Compile Include="Interfaces\IScore.cs" />
     <Compile Include="Interfaces\IScoreSystem.cs" />
     <Compile Include="Interfaces\ITeam.cs" />

@@ -10,14 +10,14 @@ namespace RaceStatistics
     // ReSharper disable once RedundantExtendsListEntry
     public partial class ScoreSystemOverview : UserControl
     {
-        private readonly IRaceStats raceStats;
+        private readonly IScoreSystemCollection scoreSystemCollection;
 
         private readonly MainWindow mainWindow;
 
         public ScoreSystemOverview()
         {
             InitializeComponent();
-            raceStats = LogicFactory.GetRaceStats();
+            scoreSystemCollection = LogicFactory.GetScoreSystemCollection();
             UpdateUi();
         }
 
@@ -52,7 +52,7 @@ namespace RaceStatistics
             {
                 try
                 {
-                    raceStats.AddScoreSystem(TxtName.Text, pointsForFastestLap);
+                    scoreSystemCollection.AddScoreSystem(TxtName.Text, pointsForFastestLap);
                 }
                 catch (InvalidInputException exception)
                 {
@@ -74,7 +74,7 @@ namespace RaceStatistics
                 IScoreSystem selectedScoreSystem = LvScoreSystems.SelectedItem as IScoreSystem;
                 try
                 {
-                    raceStats.RemoveScoreSystem(selectedScoreSystem);
+                    scoreSystemCollection.RemoveScoreSystem(selectedScoreSystem);
 
                 }
                 catch (Exception exception)
@@ -92,7 +92,7 @@ namespace RaceStatistics
 
             try
             {
-                LvScoreSystems.ItemsSource = raceStats.GetScoreSystems();
+                LvScoreSystems.ItemsSource = scoreSystemCollection.GetScoreSystems();
 
             }
             catch (ConnectionException exception)
