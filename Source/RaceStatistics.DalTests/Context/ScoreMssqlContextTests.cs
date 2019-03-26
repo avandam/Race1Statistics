@@ -34,6 +34,7 @@ namespace RaceStatistics.Dal.Tests.Context
             }
         }
 
+        // TODO: Update is not updating, but adding. This is incorrect!
         [TestMethod]
         public void UpdateScoreTest()
         {

@@ -55,11 +55,11 @@
     <Compile Include="ContextInterfaces\IScoreSystemContext.cs" />
     <Compile Include="ContextInterfaces\ISeasonContext.cs" />
     <Compile Include="ContextInterfaces\IDisciplineContext.cs" />
-    <Compile Include="Context\DisciplineSeasonMssqlContext.cs" />
-    <Compile Include="Context\ScoreMssqlContext.cs" />
-    <Compile Include="Context\ScoreSystemMssqlContext.cs" />
-    <Compile Include="Context\SeasonMssqlContext.cs" />
-    <Compile Include="Context\DisciplineMssqlContext.cs" />
+    <Compile Include="Contexts\DisciplineSeasonMssqlContext.cs" />
+    <Compile Include="Contexts\ScoreMssqlContext.cs" />
+    <Compile Include="Contexts\ScoreSystemMssqlContext.cs" />
+    <Compile Include="Contexts\SeasonMssqlContext.cs" />
+    <Compile Include="Contexts\DisciplineMssqlContext.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ScoreSystemRepository.cs" />

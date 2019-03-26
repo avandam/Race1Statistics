@@ -44,9 +44,9 @@ namespace RaceStatistics.Logic
             try
             {
                 disciplines.Clear();
-                foreach (var discipline in disciplineRepository.GetDisciplines())
+                foreach (var disciplineInfo in disciplineRepository.GetDisciplines())
                 {
-                    disciplines.Add(new Discipline(discipline));
+                    disciplines.Add(new Discipline(disciplineInfo));
                 }
                 return new ReadOnlyCollection<IDiscipline>(disciplines);
 

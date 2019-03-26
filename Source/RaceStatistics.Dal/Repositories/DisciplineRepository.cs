@@ -5,6 +5,7 @@ using RaceStatistics.Dal.Interfaces.RepositoryInterfaces;
 
 namespace RaceStatistics.Dal.Repositories
 {
+    // TODO: Update discipline to show that Collection and entity use the same repository.
     public class DisciplineRepository : IDisciplineRepository
     {
         private readonly IDisciplineContext disciplineContext;
