@@ -28,8 +28,8 @@ fontsize=12
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>120</x>
-      <y>8</y>
+      <x>360</x>
+      <y>144</y>
       <w>224</w>
       <h>72</h>
     </coordinates>
@@ -46,27 +46,26 @@ bg=orange
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
-      <y>160</y>
-      <w>280</w>
+      <x>328</x>
+      <y>296</y>
+      <w>272</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
-ISeasonRepository
+ISeasonCollectionRepository
 --
 --
-+AddSeason(season: SeasonInfo, disciplineName: String)
-+RemoveSeason(season: SeasonInfo, disciplineName: String)
-+GetSeasons(disciplineName: String): SeasonInfo[]
-+UpdateSeason(season: SeasonInfo)
++AddSeason(season: SeasonDto, disciplineName: String)
++RemoveSeason(season: SeasonDto, disciplineName: String)
++GetSeasons(disciplineName: String): SeasonDto[]
 bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
-      <y>296</y>
+      <x>480</x>
+      <y>432</y>
       <w>280</w>
       <h>48</h>
     </coordinates>
@@ -80,13 +79,13 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>584</x>
-      <y>144</y>
+      <x>976</x>
+      <y>248</y>
       <w>224</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Struct&gt;&gt;
-SeasonInfo
+SeasonDto
 --
 -Year: Integer
 --
@@ -96,8 +95,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
-      <y>400</y>
+      <x>480</x>
+      <y>536</y>
       <w>280</w>
       <h>96</h>
     </coordinates>
@@ -105,10 +104,11 @@ bg=cyan</panel_attributes>
 ISeasonContext
 --
 --
-+AddSeason(season: SeasonInfo, discipline: DisciplineInfo)
-+RemoveSeason(season: SeasonInfo)
-+GetSeasons(disciplineName: String): SeasonInfo[]
-+UpdateSeason(season: SeasonInfo)
++AddSeason(season: SeasonDto, disciplineName: String)
++RemoveSeason(season: SeasonDto)
++GetSeasons(disciplineName: String): SeasonDto[]
++UpdateSeason(season: SeasonDto, disciplineName: String,
+          oldYear: Integer)
 
 bg=blue</panel_attributes>
     <additional_attributes/>
@@ -116,47 +116,47 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
-      <y>544</y>
+      <x>480</x>
+      <y>680</y>
       <w>280</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>SeasonMssqlContext
 --
 --
--SeasonExists(season: SeasonInfo, disciplineName: String)
+-SeasonExists(season: SeasonDto, disciplineName: String)
 bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>216</x>
-      <y>72</y>
-      <w>160</w>
+      <x>456</x>
+      <y>208</y>
+      <w>144</w>
       <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*
-r1=seasonRepository</panel_attributes>
-    <additional_attributes>100.0;110.0;10.0;10.0</additional_attributes>
+r1=seasonCollectionRepository</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>376</x>
-      <y>232</y>
-      <w>24</w>
+      <x>464</x>
+      <y>368</y>
+      <w>184</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;210.0;40.0;210.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>376</x>
-      <y>488</y>
+      <x>616</x>
+      <y>624</y>
       <w>24</w>
       <h>72</h>
     </coordinates>
@@ -166,8 +166,8 @@ r1=seasonRepository</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>376</x>
-      <y>336</y>
+      <x>616</x>
+      <y>472</y>
       <w>88</w>
       <h>80</h>
     </coordinates>
@@ -179,8 +179,8 @@ r1=seasonContext</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>424</x>
-      <y>8</y>
+      <x>664</x>
+      <y>144</y>
       <w>224</w>
       <h>88</h>
     </coordinates>
@@ -189,39 +189,48 @@ bg=orange
 --
 -Year: Integer
 --
-+AddRace(name: String, date: Date, circuit: Circuit)
-+AddTeam(team: Team)
-+AddScoreSystem(system: ScoreSystem)
 +UpdateYear(newYear: Integer)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>88</y>
-      <w>120</w>
+      <x>736</x>
+      <y>224</y>
+      <w>96</w>
       <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*
 r1=seasonRepository</panel_attributes>
-    <additional_attributes>10.0;90.0;130.0;10.0</additional_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>584</x>
-      <y>240</y>
-      <w>224</w>
-      <h>72</h>
+      <x>640</x>
+      <y>296</y>
+      <w>280</w>
+      <h>80</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;Struct&gt;&gt;
-DisciplineInfo
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+ISeasonRepository
 --
--Name: String
 --
++UpdateSeason(season: SeasonDto, disciplineName: String,
+          oldYear: Integer)
 bg=cyan</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>368</y>
+      <w>152</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>170.0;10.0;170.0;40.0;10.0;40.0;10.0;80.0</additional_attributes>
   </element>
 </diagram>
